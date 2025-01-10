@@ -1,0 +1,146 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Knowing Stock Market? Part3{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Knowing Stock Market? Part 3
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/KnowingStock3.jpg' %}">
+					</div>
+					<div class="top-right-container">
+                        <div class="blog-title">Knowing Stock Market? Part 3</div>
+						<div class="blog-description">
+                            If stock prices do move in patterns, it can be quite valuable to study these patterns in order to make better trading decisions. That’s why stock charts are extremely useful for trading.As a trader in the stock market, it is important for you to be able to read a chart and understand the information that it represents. This can help you identify price patterns in the stock market and make better trading decisions.
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+                    <div class="topic-container">
+                         <div class=blog-sub-title">What Is Stock Chart?</div>
+                         <div class="blog-sub-description">A chart is a graphical representation of price and volume movements of a stock over a certain period of time. In the graphical chart, the X-axis represents the time period and the Y-axis represents the price movement. The time period can vary from intra-day to even a few months or more</div>
+                    </div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Types Of Charts</div>
+						<div class="blog-sub-description">Technical analysts use a variety of charts based on the information they seek. However, there are three types of charts that are most commonly used.</div>
+						<div class="blog-sub-description">
+							1. Line Chart:A line chart is probably the most common type of chart. This chart tracks the closing prices of the stock over a specific period. Each closing price point is represented by a dot. And all the dots are connected by lines to get the graphical representation.While it is considered to be quite simplistic (compared to other chart types), a line chart helps traders to spot trends in the price movement. However, since it tracks closing prices, it does not offer much information regarding intraday price movements.
+						</div>
+						<div class="blog-sub-description">
+							2. Bar Chart:A bar chart is quite similar to a line chart. However, it offers much more information. Instead of a dot, each plot point in the graph is represented by a vertical line. This line has two horizontal lines extending from both the sides.The top part of the vertical line represents the highest price at which the stock had traded during the day. Similarly, the lower part represents the lowest traded price. The left extension represents the price at which the stock opened while the right extension represents the closing price for the day. In addition to offering greater detail than a line chart, the bar chart also gives insight on volatility. If the line is longer, it means that there was greater volatility in the trading of the stock.
+						</div>
+						<div class="blog-sub-description">
+							3. Candlestick: CandleStick charts are very popular among technical analysts. They offer a great deal of information in a very precise manner. As the name suggests, the price movements for each day are represented in the shape of a candlestick. It is similar to a bar chart because it represents the four data points: high, low, open and close. While bar charts give volatility information only for a single trading day, candlestick charts can offer this information for a much larger time period. In addition, the candlesticks come in different colours based on the price movements. A falling candlestick is generally represented by a black or red body while a rising candlestick is represented by a white or clear body.
+						</div>
+						<di class="blog-sub-description">
+							4. Renko Charts: A Japanese invention, Renko charts, one of the major types of charts in technical analysis, focus only on price changes and use price bricks to represent a fixed price move. They filter out minor price movements which make it easier to spot trends in prices. Also, this feature makes the chart appearance more uniform. A Renko chart technical analysis is pretty effective in identifying support and resistance levels. You get a trading signal when there is a change in the direction of trend and the bricks alternate colours.
+						</di>
+						<div class="blog-sub-description">
+							5. Heikin Ashi: Heikin Ashi is another type of popular technical chart that originated in Japan is quite similar to candlestick chart. With this chart, you can visualise the uptrend and downtrend quite clearly. When there are continuous green in the chart  without lower shadow, it’s a reflection of a strong trend. On the other hand, when there are continuous red handles without upper shadow, it reflects a solid downtrend. As the bars are averaged, there’s no exact open and close prices for a particular period
+						</div>
+						<div class="blog-sub-description">
+							6. Points And Figure Chart: It is one of the common types of chart in technical analysis. Point and Figure Chart uses vertical rows of X’s and O’s. When price of a share goes up, it’s indicated in the row of X’s. On the other hand, when it goes down, the same is indicated by the vertical row of O’s. This chart for technical analysis is easy to plot and the patterns are easy to follow. A disciplined method of identifying current and emerging trends, Point & Figure Chart can help you in easy determination of entry and exit points.
+						</div>
+
+					</div>
+                </div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>
+

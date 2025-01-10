@@ -1,0 +1,160 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Let's Start{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Let's Start
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/Start.gif' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Stock Market Tips: </div>
+						<div class="blog-description">Follow these simple share market tips while investing:</div>
+						<div class="blog-description">1. Set goals before investing</div>
+						<div class="blog-description">2. Understand share market basics</div>
+						<div class="blog-description">3. Research and conduct due diligence</div>
+						<div class="blog-description">4. Select fundamentally strong companies</div>
+						<div class="blog-description">5. Do not buy based on rumours</div>
+						<div class="blog-description">6. Define profit targets</div>
+						<div class="blog-description">7. Invest through reliable intermediaries</div>
+						<div class="blog-description">8. Avoid risky low-priced stocks</div>
+						<div class="blog-description">9. Understand your risk tolerance</div>
+						<div class="blog-description">10. Diversify your investments</div>
+						<div class="blog-description">11. Control your emotions</div>
+						<div class="blog-description">12. Use stop loss</div>
+						<div class="blog-description">13. Be careful about leverage</div>
+
+
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Deciding What and When to Buy ?</div>
+						<div class="blog-sub-description">Day traders try to make money by exploiting minute price movements in individual assets (stocks, currencies, futures, and options), usually leveraging large amounts of capital to do so. In deciding what to focus on—in a stock, say—a typical day trader looks for three things:</div>
+						<div class="blog-sub-description">1.Liquidity allows you to enter and exit a stock at a good price—for instance, tight spreads, or the difference between the bid and ask price of a stock, and low slippage, or the difference between the expected price of a trade and the actual price.</div>
+						<div class="blog-sub-description">2.Volatility is simply a measure of the expected daily price range—the range in which a day trader operates. More volatility means greater profit or loss.</div>
+						<div class="blog-sub-description">3.Trading volume is a measure of how many times a stock is bought and sold in a given time period—most commonly known as the average daily trading volume. A high degree of volume indicates a lot of interest in a stock. An increase in a stock's volume is often a harbinger of a price jump, either up or down.</div>
+						<div class="blog-sub-description">Once you know what kind of stocks (or other assets) you're looking for, you need to learn how to identify entry points—that is, at what precise moment you're going to invest. Tools that can help you do this include</div>
+						<div class="blog-sub-description">•	Real-time news services: News moves stocks, so it's important to subscribe to services that tell you when potentially market-moving news comes out</div>
+						<div class="blog-sub-description">•	ECN/Level 2 quotes: ECNs, or electronic communication networks, are computer-based systems that display the best available bid and ask quotes from multiple market participants and then automatically match and execute orders. Level 2 is a subscription-based service that provides real-time access to the Nasdaq order book composed of price quotes from market makers registering every Nasdaq-listed and OTC Bulletin Board security. Together, they can give you a sense of orders being executed in real-time.</div>
+						<div class="blog-sub-description">•	Intraday candlestick charts: Candlesticks provide a raw analysis of price action.</div>
+						<div class="blog-sub-description">Define and write down the conditions under which you'll enter a position. "Buy during uptrend" isn't specific enough. Something like this is much more specific and also testable: "Buy when price breaks above the upper trendline of a triangle pattern, where the triangle was preceded by an uptrend (at least one higher swing high and higher swing low before the triangle formed) on the two-minute chart in the first two hours of the trading day."</div>
+						<div class="blog-sub-description">Once you have a specific set of entry rules, scan through more charts to see if those conditions are generated each day (assuming you want to day trade every day) and more often than not produce a price move in the anticipated direction. If so, you have a potential entry point for a strategy. You'll then need to assess how to exit, or sell, those trades</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Deciding When to Sell ?</div>
+						<div class="blog-sub-description">There are multiple ways to exit a winning position, including trailing stops and profit targets. Profit targets are the most common exit method, taking a profit at a pre-determined level. Some common price target strategies are:</div>
+						<div class="blog-sub-description">1. Scalping:</div>
+						<div class="blog-sub-description">Scalping is one of the most popular strategies. It involves selling almost immediately after a trade becomes profitable. The price target is whatever figure that translates into "you've made money on this deal."</div>
+						<div class="blog-sub-description">2. Fading:</div>
+						<div class="blog-sub-description">Fading involves shorting stocks after rapid moves upward. This is based on the assumption that (1) they are overbought, (2) early buyers are ready to begin taking profits and (3) existing buyers may be scared out. Although risky, this strategy can be extremely rewarding. Here, the price target is when buyers begin stepping in again.</div>
+						<div class="blog-sub-description">3. Daily Pivots</div>
+						<div class="blog-sub-description">This strategy involves profiting from a stock's daily volatility. This is done by attempting to buy at the low of the day and sell at the high of the day. Here, the price target is simply at the next sign of a reversal</div>
+						<div class="blog-sub-description">4. Momentum</div>
+						<div class="blog-sub-description">This strategy usually involves trading on news releases or finding strong trending moves supported by high volume. One type of momentum trader will buy on news releases and ride a trend until it exhibits signs of reversal. The other type will fade the price surge. Here, the price target is when volume begins to decrease.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Remember: </div>
+						<div class="blog-sub-description">The stock market has the potential to bring handsome returns to investors, especially over the long term. However, making money in the stock market may prove challenging for beginners </div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

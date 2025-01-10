@@ -1,0 +1,132 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Knowing Stock Market? Part 2{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Knowing Stock Market? Part 2
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/KnowingStocks2.jpg' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Knowing Stock Market? Part 2</div>
+						<div class="blog-description">
+							Stocks can be classified on the basis of the market capitalization of the company, which is the total shareholding of a company. This is calculated by multiplying the current price of the company stock with the total number of shares outstanding in the market. Listed below are the types of stocks based on market capitalization.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Types Of Stocks:</div>
+						<div class="blog-sub-description">When you buy a share, you can be a common shareholder or preferred shareholder on the basis of ownership.As a common shareholder, you are permitted to vote in shareholder meetings and you are eligible to receive dividends. If the company where you have invested goes bankrupt, you will receive the share of proceeds of liquidation only after all creditors and preferred shareholders have been paid. As a preferred shareholder, you may not have voting rights. But you will get dividends before common shareholder receives it. On the basis of market capitalization, you can invest in large cap, mid cap and small cap stocks. Market capitalization = share price*number of shares outstanding .Outstanding shares are the shares that can be bought and sold in public markets. I will explain this with an example. Say a company A has 100 outstanding shares and the share price is Rs. 20, then market capitalization of the company will be 20*100=Rs. 2000.The types Of stocks are as folows:</div>
+						<div class="blog-sub-description">Large cap stocks: These companies are well established and have a strong presence in the market. Companies like TCS, Infosys and Wipro fall under this category. Investing in these companies are less risky.</div>
+						<div class="blog-sub-description">Mid cap stocks:These companies have the potential to grow big and are relatively riskier compared to the large cap companies.</div>
+						<div class="blog-sub-description">Small cap stocks: Start ups fall under this category and are highly risky compared to the above two. On the upside, they can become a runaway success overnight.Hence, shares are units of ownership in the company and its financial assets. Shares are also known as stocks, equity, scrips etc. After purchasing them you will be known as a stockholder or a shareholder of the company.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Finanacial Instruments Traded In Stock Market:</div>
+						<div class="blog-sub-description">Shares/ Equity: Equities or stocks or shares give you ownership of a company. You can buy or sell shares through a broker.</div>
+						<div class="blog-sub-description">Mutual funds: Here, the money is pooled from many investors and then invested in various financial instruments. Investors are referred to as unit holders. Profit generated is distributed to unit holders in proportion to the units held by them.</div>
+						<div class="blog-sub-description">Bonds: These are fixed income instruments also known as debt instruments by which government or a company borrows money from investors at an agreed interest rate for a specific tenure. These are less risky when compared to shares.</div>
+						<div class="blog-sub-description">Derivatives: A derivative is a financial contract whose value is derived from an underlying asset. It can be used to mitigate a number of risks. Derivatives include forward, futures, options and swaps.</div>
+
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

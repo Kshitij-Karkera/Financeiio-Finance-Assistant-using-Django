@@ -1,0 +1,79 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Future Of Cryptocurrency:{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Future Of CryptoCurrency:
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/Future.jpg' %}">
+					</div>
+					<div class="top-right-container">
+                        <div class="blog-title">Future Of CryptoCurrency</div>
+						<div class="blog-description">Some economic analysts predict a big change in crypto is forthcoming as institutional money enters the market.</div>
+						<div class="blog-description"> Moreover, there is the possibility that crypto will be floated on the Nasdaq, which would further add credibility to blockchain and its uses as an alternative to conventional currencies.4 Some predict that all that crypto needs is a verified exchange traded fund (ETF).5 An ETF would definitely make it easier for people to invest in Bitcoin, but there still needs to be the demand to want to invest in crypto, which might not automatically be generated with a fund.</div>
+
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="blog-description">
+						Some of the limitations that cryptocurrencies presently face – such as the fact that one’s digital fortune can be erased by a computer crash, or that a virtual vault may be ransacked by a hacker – may be overcome in time through technological advances. What will be harder to surmount is the basic paradox that bedevils cryptocurrencies – the more popular they become, the more regulation and government scrutiny they are likely to attract, which erodes the fundamental premise for their existence.
+					</div>
+					<div class="blog-description">
+					</div>
+						While the number of merchants who accept cryptocurrencies has steadily increased, they are still very much in the minority. For cryptocurrencies to become more widely used, they have to first gain widespread acceptance among consumers. However, their relative complexity compared to conventional currencies will likely deter most people, except for the technologically adept.
+					<div class="blog-description">
+						Try to save up at least $1,000 of investment capital before making a stock or ETF purchase (many ETFs can be bought commission-free with certain brokers). This way, commissions don't take such a huge percentage of your capital for each purchase or sale.
+					</div>
+					<div class="blog-description">
+						A cryptocurrency that aspires to become part of the mainstream financial system may have to satisfy widely divergent criteria. It would need to be mathematically complex (to avoid fraud and hacker attacks) but easy for consumers to understand; decentralized but with adequate consumer safeguards and protection; and preserve user anonymity without being a conduit for tax evasion, money laundering and other nefarious activities. Since these are formidable criteria to satisfy, is it possible that the most popular cryptocurrency in a few years’ time could have attributes that fall in between heavily-regulated fiat currencies and today’s cryptocurrencies? While that possibility looks remote, there is little doubt that as the leading cryptocurrency at present, Bitcoin’s success (or lack thereof) in dealing with the challenges it faces may determine the fortunes of other cryptocurrencies in the years ahead.
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+		</script>
+{% endblock scripts%}
+
+</body>
+</html>

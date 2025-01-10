@@ -1,0 +1,127 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Understanding Cryptocurrency{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Understanding Cryptocurrency
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/UnderstandingCrypto.gif' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Understanding Cryptocurrency</div>
+						<div class="blog-description">
+							Cryptocurrencies are systems that allow for secure payments online which are denominated in terms of virtual "tokens," which are represented by ledger entries internal to the system. "Crypto" refers to the various encryption algorithms and cryptographic techniques that safeguard these entries, such as elliptical curve encryption, public-private key pairs, and hashing functions
+						</div>
+						<div class="blog-title">Value Of Cryptocurrency</div>
+						<div class="blog-description">Cryptocurrencies do not rely on either of these institutions. Instead, cryptocurrency is decentralized. In other words, it is created, exchanged and regulated by its users. Cryptocurrencies are digitally mined. Mining precious metals has been used as a means of giving value to money. The question of how cryptocurrencies have value is complex, and reveals that any currency derives its worth from faith in its purchasing power. All currencies require a system that guards against misuse and fraud.</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Types of Cryptocurrency</div>
+						<div class="blog-sub-description">The first blockchain-based cryptocurrency was Bitcoin, which still remains the most popular and most valuable. Today, there are thousands of alternate cryptocurrencies with various functions and specifications. Some of these are clones or forks of Bitcoin, while others are new currencies that were built from scratch.</div>
+						<div class="blog-sub-description">Bitcoin was launched in 2009 by an individual or group known by the pseudonym "Satoshi Nakamoto."1 As of March 2021, there were over 18.6 million bitcoins in circulation with a total market cap of around $927 billion.2</div>
+						<div class="blog-sub-description">Some of the competing cryptocurrencies spawned by Bitcoin’s success, known as "altcoins," include Litecoin, Peercoin, and Namecoin, as well as Ethereum, Cardano, and EOS. Today, the aggregate value of all the cryptocurrencies in existence is around $1.5 trillion—Bitcoin currently represents more than 60% of the total value.3</div>
+						<div class="blog-sub-description">Some of the cryptography used in cryptocurrency today was originally developed for military applications. At one point, the government wanted to put controls on cryptography similar to the legal restrictions on weapons, but the right for civilians to use cryptography was secured on grounds of freedom of speech.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

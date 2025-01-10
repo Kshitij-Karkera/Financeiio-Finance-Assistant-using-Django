@@ -1,0 +1,154 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Famous Cryptocurrencies{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Famous Cryptocurrencies
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/FamouseCrypto.gif' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Famous Cryptocurrencies</div>
+						<div class="blog-description">
+						 There are currently more than 1600 cryptocurrencies listed on major, middle-sized and specialist exchanges.
+                        </div>
+						<div class="blog-description">Of those cryptocurrencies and digital tokens, it is fair to say the number that has any genuine significance can be reduced down to double figures. That smaller group can be boiled down again to the cryptocurrencies that are traded enough to have real liquidity or are regularly used to pay for use of a blockchain platform with utility tokens. In this category, we can probably include somewhere between 20 to 30 different digital currencies.</div>
+						<div class="blog-description">Since the start of the cryptocurrency phenomenon,some of the cryptocurrencies have acqired a great market capitalization. They are as follows: </div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Bitcoin</div>
+						<div class="blog-sub-description">Bitcoin is considered the original crypto, and its launch in 2009 is what started the whole cryptocurrency movement. Bitcoin - and the blockchain technology on which it operates - was invented by an individual or group of individuals operating under the pseudonym Satoshi Nakamoto. Bitcoin was put forward as an alternative to the fiat monetary system. The true identity of Satoshi Nakamoto has never been revealed</div>
+						<div class="blog-sub-description">In the Bitcoin whitepaper, Nakamoto argued that a fiat monetary system controlled by central banks and a small number of financial institutions led to a centralised wealth and power and made social and financial mobility difficult. Ordinary people’s savings were eroded through inflation, largely as a result of central banks’ money printing.</div>
+						<div class="blog-sub-description">Bitcoin solved that problem by fixing the number of units ever issued, thereby preventing inflation caused by money printing. Bitcoin’s peer-to-peer blockchain technology meant it didn’t need financial institutions to facilitate transactions and verify ownership.</div>
+						<div class="blog-sub-description">Bitcoin is still by far the most popular cryptocurrency and its price movement has a strong impact on the rest of the crypto market</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Ethereum</div>
+						<div class="blog-sub-description">Ethereum is historically the second most popular cryptocurrency however it is very different from Bitcoin. Ethereum is actually the name of the blockchain platform and Ether is the name of the cryptocurrency. Ethereum is the blockchain platform for ‘smart contracts’</div>
+						<div class="blog-sub-description">They can also be considered as defined ‘rules’ from which many different applications, or Dapps – decentralised applications - can be created from. Ethereum Dapps range from games to Initial Coin Offerings (ICOs), which are the cryptocurrency world’s equivalent to crowdfunding or IPOs.</div>
+						<div class="blog-sub-description">While other smart contract platforms have been launched since Ethereum, each claiming to offer more sophisticated blockchain technology, the original blockchain has retained its position as the most utilised.</div>
+						<div class="blog-sub-description">While Bitcoin is intended as an alternative to traditional fiat currencies, the purpose of Ether (besides being traded as an asset) is to pay for use of the Ethereum platform. It’s known as a ‘utility’ cryptocurrency</div>
+					</div>
+
+					<div class="topic-container">
+						<div class="blog-sub-title">Ripple XRP</div>
+						<div class="blog-sub-description">Ripple XRP is another ‘utility’ coin. Its blockchain platform is set up to facilitate cross-border transfers of fiat currency more efficiently. Closely connected to and supported by a number of banks from its beginning, Ripple XRP is often regarded as the ‘establishment’ cryptocurrency.</div>
+						<div class="blog-sub-description">The number of transfer services using Ripple’s platform has gradually grown over the years and there is a genuine possibility that it will become part of the traditional financial system</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Litecoin</div>
+						<div class="blog-sub-description">Litecoin is another potential fiat alternative and a prominent rival for Bitcoin. Its creators hope Litecoin will eventually be used to pay for everyday goods and services. Litecoin has positioned itself as a more practical and technologically superior alternative to Bitcoin. Litecoin transactions can be confirmed by the P2P network significantly quicker than Bitcoin transactions.</div>
+						<div class="blog-sub-description">In theory, this could make Litecoin more attractive for merchants, but with ‘real-life’ cryptocurrency transactions still hugely limited, Bitcoin’s more established ‘brand’ keeps it well out in front as the fiat alternative cryptocurrency of choice.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">NEO</div>
+						<div class="blog-sub-description">Like Ethereum, NEO is a smart contract and Dapps platform. Released in 2014, NEO’s ambition was to improve upon Ethereum by offering approximately the same utility through a technologically more sophisticated example of blockchain technology</div>
+						<div class="blog-sub-description">There are many who argue NEO is the technically superior platform to Ethereum but, as is the case with Litecoin and Bitcoin, the latter’s more established position has helped it maintain a larger market share.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">IOTA</div>
+						<div class="blog-sub-description">IOTA is a unique cryptocurrency that is based on the Directed Acyclic Graph (DAG) structure, created to work with Internet of Things (IoT) devices. IoT facilitates feeless microtransactions involving connected devices, and it also helps maintain their data integrity. More recently, IOTA jumped to the top of the list of most traded cryptocurrencies and appears to have a big future, with IoT technology becoming the standard.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

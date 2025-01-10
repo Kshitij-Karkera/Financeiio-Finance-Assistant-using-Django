@@ -1,0 +1,3948 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/suggestions.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Investment Suggestions{% endblock title %}</title>
+</head>
+<body>
+	{% block currentsecname %}
+		Investment Suggestions
+	{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+		{% if notfill == 'no'%}
+			
+			<form method="post" class="form-1" autocomplete="off">
+				{% csrf_token %}
+				<h2>Know more about Investments and Gov. schemes</h2>
+				<button class="suggestion-btn" type="submit" name="getsuggestform" value="getsuggestform">Get Started</button>
+			</form>
+		{% endif %}
+		{% if filled == 'no' %}
+			<form method="post" class="form-2" autocomplete="off">
+				{% csrf_token %}
+				<div class="form-grid-top">
+					<div class="form-grid-left">
+						<div class="label-field">
+							<label for="fname">Income:</label>
+							<input type="text" id="fname" name="suggestincome" placeholder="Your annual income..." style="margin-left: -10px;">
+						</div>
+						<div class="label-field">
+							<label for="lname">Age:</label>
+							<input type="text" id="lname" name="suggestage" placeholder="Your age...">
+						</div>
+					</div>
+					<div class="form-grid-right">
+						<div class="label-field">
+							<label for="country">States:</label>
+							<select id="mounth" name="suggeststates">
+								<option value="hide">-- States --</option>
+								<option value="chhattisgarh">Chhattisgarh</option>
+								<option value="delhi">Delhi</option>
+								<option value="gujarat">Gujarat</option>
+								<option value="haryana">Haryana</option>
+								<option value="himachalPradesh">Himachal Pradesh</option>
+								<option value="karnataka">Karnataka</option>
+								<option value="kerala">Kerala</option>
+								<option value="madhyaPradesh">Madhya Pradesh</option>
+								<option value="maharashtra">Maharashtra</option>
+								<option value="odisha">Odisha</option>
+								<option value="punjab">Punjab</option>
+								<option value="rajasthan">Rajasthan</option>
+								<option value="tamilNadu">Tamil Nadu</option>
+								<option value="uttarakhand">Uttarakhand</option>
+								<option value="uttarPradesh">Uttar Pradesh</option>
+								<option value="westBengal">West Bengal</option>
+							</select>
+						</div>
+						<div class="label-field">
+							<label for="kids">Kids:</label>
+							<select id="kids" name="suggestkids">
+								<option value="hide">-- Kids --</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-grid-bottom">
+					<input type="submit" value="Submit" name="suggestionsubmit"> 
+				</div>
+			</form>
+			{% endif %}
+			{% if suggest == 'yes'%}
+			<div class="main-container1">
+				<div class="coin-card-container">
+					<h1 class="crypto-title">Crypto</h1>
+					<form method="post" style="margin: 0;" action="{% url 'learn' %}">
+						{% csrf_token %}
+						<button class="crypto-learn-more">Learn more</button></form>
+					<div class="note">Note : Suggestions will change according to the market</div>
+				</div>
+				<div class="coin-card-container">
+					<a href="#">
+						<div class="coin-card">
+							<div class="coin-image"><img src="{% static 'mysite/bitcoin.png' %}"  style="padding: 10px;"></div>
+							<div class="coin-text">
+								<div class="coin-name">Bitcoin</div>
+								<div class="coin-price">Price: ₹{{btc}}</div>
+							</div>
+						</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Ethereum-icon-purple.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Ethereum</div>
+							<div class="coin-price">Price: ₹{{eth}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/zcash-logo.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ZCash</div>
+							<div class="coin-price">Price: ₹{{zec}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/tron-logo.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Tron</div>
+							<div class="coin-price">Price: ₹{{trx}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/litecoin-logo.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Litecoin</div>
+							<div class="coin-price">Price: ₹{{ltc}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/dash.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Dash</div>
+							<div class="coin-price">Price: ₹{{dash}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/cardano-logo.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Cardano</div>
+							<div class="coin-price">Price: ₹{{ada}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="#">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Dogecoin_Logo.png' %}"  style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">Dogecoin</div>
+							<div class="coin-price">Price: ₹{{doge}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+			
+				<div class="coin-card-container">
+					<h1 class="crypto-title">Stocks</h1>
+					<form method="post" style="margin: 0;" action="{% url 'learn' %}">
+						{% csrf_token %}
+						<button class="crypto-learn-more">Learn more</button></form>
+					<div class="note">Note : Suggestions will change according to the market</div>
+				</div>
+				{% if ssincome <= 300000 %}
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Dabur_Logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DABUR</div>
+							<div class="coin-price">Price: ₹{{stkList1.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/hindalco.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">HINDALCO</div>
+							<div class="coin-price">Price: ₹{{stkList1.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/ICICI-Bank-PNG-Logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ICICIBANK</div>
+							<div class="coin-price">Price: ₹{{stkList1.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Tata-Motors-Logo.png' %}" style="padding: 25px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TATASTEEL</div>
+							<div class="coin-price">Price: ₹{{stkList1.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Adani_Group_logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ADANIENT</div>
+							<div class="coin-price">Price: ₹{{stkList1.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/TVS-motors-logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TVSMOTOR</div>
+							<div class="coin-price">Price: ₹{{stkList1.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Larsen&Toubro_logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">LT</div>
+							<div class="coin-price">Price: ₹{{stkList1.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/infosys.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">INFY</div>
+							<div class="coin-price">Price: ₹{{stkList1.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				{% endif %}
+				<br>
+				<br>
+				{% if ssincome <= 1000000 %}
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/divis.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DIVISLAB</div>
+							<div class="coin-price">Price: ₹{{stkList2.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Bajaj-Logo.png' %}" style="padding:20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">BAJAJ-AUTO</div>
+							<div class="coin-price">Price: ₹{{stkList2.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/LTI.png' %}" style="padding: 15px 10px 15px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">LTI</div>
+							<div class="coin-price">Price: ₹{{stkList2.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/mindtree.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">MINDTREE</div>
+							<div class="coin-price">Price: ₹{{stkList2.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Ultratech_Cement_Logo.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ULTRACEMCO</div>
+							<div class="coin-price">Price: ₹{{stkList2.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Kajaria.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">KAJARIACER</div>
+							<div class="coin-price">Price: ₹{{stkList2.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/dmart.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DMART</div>
+							<div class="coin-price">Price: ₹{{stkList2.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/titan.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TITAN</div>
+							<div class="coin-price">Price: ₹{{stkList2.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<br>
+				<br>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Dabur_Logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DABUR</div>
+							<div class="coin-price">Price: ₹{{stkList1.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/hindalco.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">HINDALCO</div>
+							<div class="coin-price">Price: ₹{{stkList1.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/ICICI-Bank-PNG-Logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ICICIBANK</div>
+							<div class="coin-price">Price: ₹{{stkList1.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Tata-Motors-Logo.png' %}" style="padding: 25px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TATASTEEL</div>
+							<div class="coin-price">Price: ₹{{stkList1.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Adani_Group_logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ADANIENT</div>
+							<div class="coin-price">Price: ₹{{stkList1.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/TVS-motors-logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TVSMOTOR</div>
+							<div class="coin-price">Price: ₹{{stkList1.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Larsen&Toubro_logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">LT</div>
+							<div class="coin-price">Price: ₹{{stkList1.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/infosys.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">INFY</div>
+							<div class="coin-price">Price: ₹{{stkList1.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				{% endif %}
+				<br>
+				<br>
+				{% if ssincome >= 1500000 %}
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/mrf.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">MRF</div>
+							<div class="coin-price">Price: ₹{{stkList3.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Nestlé_India_Logo.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">NESTLEIND</div>
+							<div class="coin-price">Price: ₹{{stkList3.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/PAGEIND.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">PAGEIND</div>
+							<div class="coin-price">Price: ₹{{stkList3.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/shree_cement_logo.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">SHREECEM</div>
+							<div class="coin-price">Price: ₹{{stkList3.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/3M_wordmark.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">3MINDIA</div>
+							<div class="coin-price">Price: ₹{{stkList3.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Bosch_logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">BOSCHLTD</div>
+							<div class="coin-price">Price: ₹{{stkList3.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Bajaj_Finserv_Logo.svg.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">BAJAJFINSV</div>
+							<div class="coin-price">Price: ₹{{stkList3.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Atul_logo.png' %}" style="padding: 15px 10px 15px 10px"></div>
+						<div class="coin-text">
+							<div class="coin-name">ATUL</div>
+							<div class="coin-price">Price: ₹{{stkList3.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<br>
+				<br>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/divis.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DIVISLAB</div>
+							<div class="coin-price">Price: ₹{{stkList2.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Bajaj-Logo.png' %}" style="padding:20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">BAJAJ-AUTO</div>
+							<div class="coin-price">Price: ₹{{stkList2.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/LTI.png' %}" style="padding: 15px 10px 15px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">LTI</div>
+							<div class="coin-price">Price: ₹{{stkList2.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/mindtree.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">MINDTREE</div>
+							<div class="coin-price">Price: ₹{{stkList2.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Ultratech_Cement_Logo.png' %}" style="padding: 20px 10px 20px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ULTRACEMCO</div>
+							<div class="coin-price">Price: ₹{{stkList2.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Kajaria.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">KAJARIACER</div>
+							<div class="coin-price">Price: ₹{{stkList2.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/dmart.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DMART</div>
+							<div class="coin-price">Price: ₹{{stkList2.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/titan.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TITAN</div>
+							<div class="coin-price">Price: ₹{{stkList2.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<br>
+				<br>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Dabur_Logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">DABUR</div>
+							<div class="coin-price">Price: ₹{{stkList1.0}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/hindalco.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">HINDALCO</div>
+							<div class="coin-price">Price: ₹{{stkList1.1}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/ICICI-Bank-PNG-Logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ICICIBANK</div>
+							<div class="coin-price">Price: ₹{{stkList1.2}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Tata-Motors-Logo.png' %}" style="padding: 25px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TATASTEEL</div>
+							<div class="coin-price">Price: ₹{{stkList1.3}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				<div class="coin-card-container">
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Adani_Group_logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">ADANIENT</div>
+							<div class="coin-price">Price: ₹{{stkList1.4}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/TVS-motors-logo.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">TVSMOTOR</div>
+							<div class="coin-price">Price: ₹{{stkList1.5}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/Larsen&Toubro_logo.png' %}" style="padding: 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">LT</div>
+							<div class="coin-price">Price: ₹{{stkList1.6}}</div>
+						</div>
+					</div>
+					</a>
+					<a href="">
+					<div class="coin-card">
+						<div class="coin-image"><img src="{% static 'mysite/infosys.png' %}" style="padding: 25px 10px 25px 10px;"></div>
+						<div class="coin-text">
+							<div class="coin-name">INFY</div>
+							<div class="coin-price">Price: ₹{{stkList1.7}}</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				{% endif %}
+				<div class="coin-card-container" style="padding-bottom: 0px;">
+					<h1 class="crypto-title">Government Schemes</h1>
+					<form method="post" style="margin: 0;" action="{% url 'learn' %}">
+						{% csrf_token %}
+						<button class="crypto-learn-more">Learn more</button></form>
+				</div>
+				<div class="coin-card-container-for">For you</div>
+				{% if states == 'chhattisgarh' %}
+    				{% if age >= 18 %}
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhyamantri Kanyadan Yojana.
+								</div>
+								<a href="{% static 'mysite/chhattisgarh_mukhyamantri_kanyadan_yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Kaushalya Maternity Scheme.
+								</div>
+								<a href="{% static 'mysite/chhattisgarh_kaushalya_maternity_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Chhattisgarh Free Smartphone Scheme.
+								</div>
+								<a href="{% static 'mysite/chhattisgarh_free_smartphone_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Mudra Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+							
+						{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container-for">0 - 15</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Chhattisgarh Mukhyamantri Bal Hriday Suraksha Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_mukhyamantri_bal_hriday_suraksha_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Chhattisgarh Bal Sandarbh Yojana.
+									</div>
+									<a href="{% static 'mysite/chhatisgarh_mukhyamantri_bal_sandarbh_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">16 - 18</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Chhattisgarh Mukhyamantri Gyan Protshan Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_mukhyamantri_gyan_protsahan_yojana.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container-for">For children born after 2008</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text" style="margin-right: 2rem;">
+										Chhattisgarh Dhan Laxmi Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_dhanlaxmi_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text" style="margin-right: 2rem;">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+						{% endif %}
+				{% endif %}
+				{% if age < 18 %}
+							
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container-for">0 - 15</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Chhattisgarh Mukhyamantri Bal Hriday Suraksha Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_mukhyamantri_bal_hriday_suraksha_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Chhattisgarh Bal Sandarbh Yojana.
+									</div>
+									<a href="{% static 'mysite/chhatisgarh_mukhyamantri_bal_sandarbh_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">16 - 18</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Chhattisgarh Mukhyamantri Gyan Protshan Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_mukhyamantri_gyan_protsahan_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container-for">For children born after 2008</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text" style="margin-right: 2rem;">
+										Chhattisgarh Dhan Laxmi Yojana.
+									</div>
+									<a href="{% static 'mysite/chhattisgarh_dhanlaxmi_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+					{% endif %}
+				{% endif %}
+				
+				{% if states == 'delhi' %}
+					{% if age >= 18 %}
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Free Accident Treatment Scheme.
+								</div>
+								<a href="{% static 'mysite/Accident Delhi4.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Delhi Majdur Sahayata Yojana.
+								</div>
+								<a href="{% static 'mysite/majdoor sahyta.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Delhi Overseas Scholarship Scheme.
+								</div>
+								<a href="{% static 'mysite/Delhi Oversease.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									DDA EWS Housing.
+								</div>
+								<a href="{% static 'mysite/DDA EWS Housing Scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Widow Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/Delhi Widow.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						{% if kids == 'yes' %}
+						
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Higher Education and Skill Devlopment Scheme.
+									</div>
+									<a href="{% static 'mysite/Higher Eduction And Skill Development Delhi.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										DDA EWS Housing.
+									</div>
+									<a href="{% static 'mysite/DDA EWS Housing Scheme.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Delhi Ladli Scheme.
+									</div>
+									<a href="{% static 'mysite/delhi_ladli_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							{% endif %}
+					{% endif %}
+					{% if age < 18 %}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Higher Education and Skill Devlopment Scheme.
+									</div>
+									<a href="{% static 'mysite/Higher Eduction And Skill Development Delhi.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										DDA EWS Housing.
+									</div>
+									<a href="{% static 'mysite/DDA EWS Housing Scheme.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text" >
+										Delhi Ladli Scheme.
+									</div>
+									<a href="{% static 'mysite/delhi_ladli_scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+					{% endif %}
+				{% endif %}
+
+				{% if states == 'gujarat' %}
+    				{% if age >= 18 %}
+						<div class="coin-card-container">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Shri Vajpayee Bankable Yojana.
+								</div>
+								<a href="{% static 'mysite/Shri Vajpayee Bankable Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Dr. Ambedkar Aavas Scheme.
+								</div>
+								<a href="{% static 'mysite/Dr Ambedkar Avas.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pandit Dindayal Upadhyay Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/PanditDinDayalAvas.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Kasturba Poshan Sahay Yojana.
+								</div>
+								<a href="{% static 'mysite/Kasturba Poshan Sahay Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Janani Shishu Suraksha Karyakaram.
+								</div>
+								<a href="{% static 'mysite/janani.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Dr Ambedkar Pre-Matric & post Matric Scholarship.
+									</div>
+									<a href="{% static 'mysite/Dr Ambedkar Pre-Matric & post Matric Scholarship Gujarat.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										SC OBC Coaching Scheme with Stipened.
+									</div>
+									<a href="{% static 'mysite/SC OBC Coaching Scheme with Stipened Gujarat.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Govt. of India Pre-Matric Scholarship for SC Students Std. 9 and 10.
+									</div>
+									<a href="{% static 'mysite/Govt. of India Pre-Matric Scholarship for SC Students Std. 9 and 10 Gujarat.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Dr. Ambedkar Aavas Scheme.
+									</div>
+									<a href="{% static 'mysite/Dr Ambedkar Avas.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Pandit Dindayal Upadhyay Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/PanditDinDayalAvas.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Dr Ambedkar Pre-Matric & post Matric Scholarship.
+									</div>
+									<a href="{% static 'mysite/Dr Ambedkar Pre-Matric & post Matric Scholarship Gujarat.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text">
+										SC OBC Coaching Scheme with Stipened.
+									</div>
+									<a href="{% static 'mysite/SC OBC Coaching Scheme with Stipened Gujarat.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Govt. of India Pre-Matric Scholarship for SC Students Std. 9 and 10.
+									</div>
+									<a href="{% static 'mysite/Govt. of India Pre-Matric Scholarship for SC Students Std. 9 and 10 Gujarat.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Dr. Ambedkar Aavas Scheme.
+									</div>
+									<a href="{% static 'mysite/Dr Ambedkar Avas.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Pandit Dindayal Upadhyay Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/PanditDinDayalAvas.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" ></div>
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+						{% endif %}
+				{% endif %}
+
+				{% if states == 'haryana' %}
+    				{% if age >= 18 %}
+						<div class="coin-card-container">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Old Age Samman Allowance.
+								</div>
+								<a href="{% static 'mysite/Mukhya Mantri Old Age Samman Pension Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Rajiv Gandhi Pariwar Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/RAJIV GANDHI PARIWAR BIMA YOJNA HR.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Haryana State Merit Scholarship.
+								</div>
+								<a href="{% static 'mysite/Haryana State Merit Scholarship.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Parivar Samridhi Yojana.
+								</div>
+								<a href="{% static 'mysite/haryana_mukhyamantri_parivar_samridhi_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Widow Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/Haryana Widow Pension Scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Annusuchit Jati Chhattra Ucch Shiksha Protsahan Yojna.
+								</div>
+								<a href="{% static 'mysite/anusuchit-jati-chattra-ucch-shiksha-protsahan-yojna_detail.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Provision of free books and uniforms to children(10th).
+									</div>
+									<a href="{% static 'mysite/Haryana 1 to 8 free books.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Rajiv Gandhi Scholarship for excellence in education, Haryana.
+									</div>
+									<a href="{% static 'mysite/Rajiv Gandhi Scholarship For Excellence In Education Scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"   style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Monthly Stipend for BPL students (Class 1 to 8), Haryana.
+									</div>
+									<a href="{% static 'mysite/Monthly Stipned Hr.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Dr. Ambedkar Sanshodhit Medhavi Chhattar Sansodhit Yojna.
+									</div>
+									<a href="{% static 'mysite/Dr. Ambedkar Medhavi Chhattar Sansodhit Yojna-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Provision of free books and uniforms to children(1st - 8th).
+									</div>
+									<a href="{% static 'mysite/Haryana 1 to 8 free books.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+
+						<div class="coin-card-container-for">For kids</div>
+						<div class="coin-card-container-for">Boy/Girl</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Provision of free books and uniforms to children(10th).
+								</div>
+								<a href="{% static 'mysite/Haryana 1 to 8 free books.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Rajiv Gandhi Scholarship for excellence in education, Haryana.
+								</div>
+								<a href="{% static 'mysite/Rajiv Gandhi Scholarship For Excellence In Education Scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"   style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Monthly Stipend for BPL students (Class 1 to 8), Haryana.
+								</div>
+								<a href="{% static 'mysite/Monthly Stipned Hr.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Dr. Ambedkar Sanshodhit Medhavi Chhattar Sansodhit Yojna.
+								</div>
+								<a href="{% static 'mysite/Dr. Ambedkar Medhavi Chhattar Sansodhit Yojna-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Girls</div>
+						<div class="coin-card-container">
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Provision of free books and uniforms to children(1st - 8th).
+								</div>
+								<a href="{% static 'mysite/Haryana 1 to 8 free books.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Sukanya simridhi yojana.
+								</div>
+								<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+						{% endif %}
+					{% endif %}
+
+					{% if states == 'himachalPradesh' %}
+    					{% if age >= 18 %}
+
+						<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhyamantri Swavalamban Yojana.
+								</div>
+								<a href="{% static 'mysite/hp_mukhyamantri_swavalamban_yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Startup Yojana.
+								</div>
+								<a href="{% static 'mysite/himachal_pradesh_cm_startup_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mother Teressa Ashay Matri Sambal Yojna.
+								</div>
+								<a href="{% static 'mysite/mother_teresa_asahaya_matri_sambal _yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Grahini Suvidha Yojana.
+								</div>
+								<a href="{% static 'mysite/himachal_pradesh_grihini_suvidha_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Atal School Vardi Yojana.
+									</div>
+									<a href="{% static 'mysite/Atal vardi Yojana.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Mukhyamantri Startup Yojana.
+									</div>
+									<a href="{% static 'mysite/himachal_pradesh_cm_startup_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>		
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Beti Hai Anmol.
+									</div>
+									<a href="{% static 'mysite/Beti Hai Anmol.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+    			{% endif %}
+    			{% if age < 18%}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Atal Vardi Yojana.
+									</div>
+									<a href="{% static 'mysite/.Atal vardi Yojanapdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Mukhyamantri Startup Yojana.
+									</div>
+									<a href="{% static 'mysite/himachal_pradesh_cm_startup_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Beti Hai Anmol.
+									</div>
+									<a href="{% static 'mysite/Beti Hai Anmol.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endif %}
+
+				{% if states == 'karnataka' %}
+    				{% if age >= 18 %}
+
+					<div class="coin-card-container-for">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Karnataka Mathushreee Scheme.
+								</div>
+								<a href="{% static 'mysite/karnataka_mathrushree_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Karnataka Saptapadi Vivah Scheme.
+								</div>
+								<a href="{% static 'mysite/karnataka_saptapadi_vivah_yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Prabuddha Scheme for Abroad Studies.
+								</div>
+								<a href="{% static 'mysite/karnataka_prabuddha_scheme_for _sc-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Free Laptop Scheme.
+								</div>
+								<a href="{% static 'mysite/karnataka_free_laptop_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Banglore Housing Scheme.
+								</div>
+								<a href="{% static 'mysite/karnataka_cm_bengaluru_housing_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Arogya Karnataka Health Scheme.
+								</div>
+								<a href="{% static 'mysite/arogya_karnataka_health_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+						{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Rashtriya Bal Swasthya Karyakaram.
+									</div>
+									<a href="{% static 'mysite/rashtriya_bal_swasthya_karyakram-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Arogya Karnataka Health Scheme.
+									</div>
+									<a href="{% static 'mysite/arogya_karnataka_health_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>					
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+					{% endif %}
+					{% if age < 18 %}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Rashtriya Bal Swasthya Karyakaram.
+									</div>
+									<a href="{% static 'mysite/rashtriya_bal_swasthya_karyakram-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Arogya Karnataka Health Scheme.
+									</div>
+									<a href="{% static 'mysite/arogya_karnataka_health_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>		
+							</div>
+						{% endif %}
+					{% endif %}
+
+				{% if states == 'kerala' %}
+    				{% if age >= 18 %}
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Entreprenure Support Scheme.
+								</div>
+								<a href="{% static 'mysite/entrepreneur_support_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Kerala Vayomadhuram Scheme.
+								</div>
+								<a href="{% static 'mysite/kerala_vayomadhuram_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									State Merit Scholarship.
+								</div>
+								<a href="{% static 'mysite/state_merit_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									District Merit Scholarship.
+								</div>
+								<a href="{% static 'mysite/kerala_district_merit_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Kerala Life Mission(Housing Scheme).
+								</div>
+								<a href="{% static 'mysite/kerala_life_mission-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Free School Uniform Scheme.
+									</div>
+									<a href="{% static 'mysite/kerala_free_school_uniform_scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										State Merit Scholarship.
+									</div>
+									<a href="{% static 'mysite/state_merit_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>		
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										District Merit Scholarship.
+									</div>
+									<a href="{% static 'mysite/kerala_district_merit_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>	
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										She Pad Scheme.
+									</div>
+									<a href="{% static 'mysite/kerala_she_pad_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Free School Uniform Scheme.
+									</div>
+									<a href="{% static 'mysite/kerala_free_school_uniform_scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										State Merit Scholarship.
+									</div>
+									<a href="{% static 'mysite/state_merit_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>		
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										District Merit Scholarship.
+									</div>
+									<a href="{% static 'mysite/kerala_district_merit_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card"  style="margin-right: 2rem;">
+									<div class="scheme-text">
+										She Pad Scheme.
+									</div>
+									<a href="{% static 'mysite/.kerala_she_pad_scheme-convertedpdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>		
+							</div>
+
+						{% endif %}
+					{% endif %}
+
+			{% if states == 'madhyaPradesh' %}
+    			{% if age >= 18 %}
+					<div class="coin-card-container">Women</div>
+					<div class="coin-card-container">
+						<div class="scheme-card"  style="margin-right: 2rem;">
+							<div class="scheme-text">
+								Stand up india.
+							</div>
+							<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+						</div>
+					</div>
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Shiksha Protsahan.
+								</div>
+								<a href="{% static 'mysite/mp_mukhyamantri_jan_kalyan_shiksha_protsahan_yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Medhavi Vidyarthi Yojana.
+								</div>
+								<a href="{% static 'mysite/mp_mukhyamantri_medhavi_vidyarthi_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									National Family Benefit Scheme.
+								</div>
+								<a href="{% static 'mysite/National Family Benefit Scheme.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Indira Grah Jyoti Yojana.
+								</div>
+								<a href="{% static 'mysite/mp_indira_grah_jyoti_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Ayushman Bharat Niramayam Yojana.
+								</div>
+								<a href="{% static 'mysite/ayushman_bharat_niramayam_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for OBC Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for SC Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+							</div>	
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for ST Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+										
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+						
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for OBC Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for SC Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+							</div>	
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Post Matric Scholarship Scheme for ST Students.
+									</div>
+									<a href="{% static 'mysite/MP POST MATRIC SCHOLARSHIP 2020 2021 FOR SC-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>		
+							</div>
+						{% endif %}
+					{% endif %}
+
+				{% if states == 'maharashtra' %}
+    				{% if age >= 18 %}
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									National Family Benefit Scheme.
+								</div>
+								<a href="{% static 'mysite/National Family Benefit Scheme.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Sanjay Gandhi Niradhar Anudan Yojana.
+								</div>
+								<a href="{% static 'mysite/sanjay_gandhi_niradhar_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Shravanbal Seva Rajya Nvruttivetan Yojana.
+								</div>
+								<a href="{% static 'mysite/maharashtra_shravan_bal_seva_rajya_nivruttivetan_yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									MahaDBTScholarship Schemes.
+								</div>
+								<a href="{% static 'mysite/mahadbt_scholarship_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Balsangopan Yojana.
+									</div>
+									<a href="{% static 'mysite/bal_sangopan_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										MahaDBTScholarship Schemes.
+									</div>
+									<a href="{% static 'mysite/mahadbt_scholarship_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>		
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Majhi Kanya Bhagyashree Scheme.
+									</div>
+									<a href="{% static 'mysite/majhI_kanya_bhagyashree_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>			
+				
+						{% endif %}
+    				{% endif %}
+   					{% if age < 18%}
+
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Balsangopan Yojana.
+									</div>
+									<a href="{% static 'mysite/bal_sangopan_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										MahaDBTScholarship Schemes.
+									</div>
+									<a href="{% static 'mysite/mahadbt_scholarship_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Majhi Kanya Bhagyashree Scheme.
+									</div>
+									<a href="{% static 'mysite/majhI_kanya_bhagyashree_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>	
+						{% endif %}
+					{% endif %}
+
+				{% if states == 'odisha' %}
+    				{% if age >= 18 %}
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Small Saving Incentive Scheme.
+								</div>
+								<a href="{% static 'mysite/odisha_small_savings_incentive_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									National Family Benefit.
+								</div>
+								<a href="{% static 'mysite/National Family Benefit Scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Abadana scheme.
+								</div>
+								<a href="{% static 'mysite/abadana_scheme.pdf' %}" download>more</a>
+							</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mamta Yojana.
+								</div>
+								<a href="{% static 'mysite/odisha_mamata_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Sammpurna Yojana.
+								</div>
+								<a href="{% static 'mysite/odisha_sampurna_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+						{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Mukhyamantri Medhbruti Puraskar Scheme.
+									</div>
+									<a href="{% static 'mysite/odisha_mukhyamantri_medhabruti_puraskar_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+										
+							{% endif %}
+    				{% endif %}
+    				{% if age < 18%}
+						
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Mukhyamantri Medhbruti Puraskar Scheme.
+									</div>
+									<a href="{% static 'mysite/odisha_mukhyamantri_medhabruti_puraskar_yojana-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>	
+					
+						{% endif %}
+					{% endif %}
+
+			{% if states == 'punjab' %}
+    			{% if age >= 18 %}
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									National Family Benefit Scheme.
+								</div>
+								<a href="{% static 'mysite/National Family Benefit Scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Indira Gandhi Matritava Sehyog Yojana .
+								</div>
+								<a href="{% static 'mysite/Indra Gandhi .pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+						
+						{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Dr. Hargobind Khurana Scholarship Scheme for Brilliant Students.
+									</div>
+									<a href="{% static 'mysite/dr._hargobind_khurana_scholarship_scheme_ for_brilliant_students-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Chief Minister Scholarship Scheme.
+									</div>
+									<a href="{% static 'mysite/punjab_chief_minister_scholarship_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										BEBE Nanki Laadii Beti Kalyan Scheme.
+									</div>
+									<a href="{% static 'mysite/Bebe Nanki Laadli Beti Kalyan Scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										National Scheme of Incentive to Girls for Secondary Education.
+									</div>
+									<a href="{% static 'mysite/National Scheme of Incentive to Girls for Secondary Education-converted.pdf' %}" download>more</a>
+								</div>
+							</div>		
+										
+					{% endif %}
+    			{% endif %}
+    			{% if age < 18%}
+						
+							<div class="coin-card-container-for">Boy/Girl</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Dr. Hargobind Khurana Scholarship Scheme for Brilliant Students.
+									</div>
+									<a href="{% static 'mysite/dr._hargobind_khurana_scholarship_scheme_ for_brilliant_students-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Chief Minister Scholarship Scheme.
+									</div>
+									<a href="{% static 'mysite/punjab_chief_minister_scholarship_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										BEBE Nanki Laadii Beti Kalyan Scheme.
+									</div>
+									<a href="{% static 'mysite/Bebe Nanki Laadli Beti Kalyan Scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										National Scheme of Incentive to Girls for Secondary Education.
+									</div>
+									<a href="{% static 'mysite/National Scheme of Incentive to Girls for Secondary Education-converted.pdf' %}" download>more</a>
+								</div>
+							</div>	
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+						
+						{% endif %}
+					{% endif %}
+
+			{% if states == 'rajasthan' %}
+    			{% if age >= 18 %}
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhyamantri Yuva Sambal Yojana.
+								</div>
+								<a href="{% static 'mysite/Rajasthan Mukhyamantri Yuva Sambal Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Anuprati Coaching Yojana For EWS Students.
+								</div>
+								<a href="{% static 'mysite/Anuprati Coaching Yojana For Students.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Chief Minister Higher Education Scholarship Scheme.
+								</div>
+								<a href="{% static 'mysite/Chief Minister Higher Education Scholarship Scheme.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Vishesh Yogyajan Samman Pension Yojana (age 55+).
+								</div>
+								<a href="{% static 'mysite/.Mukhyamantri Vishesh Yogyajan Samman Pension Yojanapdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhyamantri Old Age Samman Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/Mukhya Mantri Old Age Samman Pension Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Nishulk Dava Yojna .
+								</div>
+								<a href="{% static 'mysite/Dava Yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Nishulk Sanitary Napkins Distribution Scheme.
+								</div>
+								<a href="{% static 'mysite/rajasthan_menstrual_hygiene_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+						<div class="coin-card-container">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Rajasthan Janani Shishu Suraksha Yojna.
+								</div>
+								<a href="{% static 'mysite/janani.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhya Mantri Ekal Nari Samman Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/Mukhya Mantri Ekal Nari Samman Pension Yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+						{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Gargi Award.
+									</div>
+									<a href="{% static 'mysite/Gargi Award Rajasthan.pdf' %}" download>more</a>
+								</div>
+							</div>
+							
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+							
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Gargi Award.
+									</div>
+									<a href="{% static 'mysite/Gargi Award Rajasthan.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>							
+							
+
+						{% endif %}
+					{% endif %}
+
+			{% if states == 'tamilNadu' %}
+    			{% if age >= 18 %}
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Accidental relief Scheme.
+								</div>
+								<a href="{% static 'mysite/TamilNaduAccidentReliefScheme.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Assistance for marriage.
+								</div>
+								<a href="{% static 'mysite/Marriage Assistance.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Assistance For delivery of child.
+								</div>
+								<a href="{% static 'mysite/Assistance For delivery of child.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Assistance for miscarriage or termination of pregancy.
+								</div>
+								<a href="{% static 'mysite/Assistance for miscarriage or termination of pregancy.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Adi Dravidar and Tribal Welfare Department Scholarship Free Education Upto 12th Std.
+									</div>
+									<a href="{% static 'mysite/Adi Dravidar and Tribal Welfare Department Scholarship Free Education Upto 12th Std.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Adi Dravidar and Tribal Welfare Department Stationary Text Books.
+									</div>
+									<a href="{% static 'mysite/Adi Dravidar and Tribal Welfare Department Stationary Text Books.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}	
+										
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Adi Dravidar and Tribal Welfare Department Scholarship Free Education Upto 12th Std.
+									</div>
+									<a href="{% static 'mysite/.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Adi Dravidar and Tribal Welfare Department Stationary Text Books.
+									</div>
+									<a href="{% static 'mysite/.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							
+						{% endif %}
+					{% endif %}
+
+			{% if states == 'uttarakhand' %}
+    			{% if age >= 18 %}
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mukhyamantri Swavalamban Yojana.
+								</div>
+								<a href="{% static 'mysite/Mukhyamantri Swavalamban Yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pension scheme.
+								</div>
+								<a href="{% static 'mysite/Uttarakhand Old Age Pension Scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal ayushman Yojana.
+								</div>
+								<a href="{% static 'mysite/Atal Ayushman Yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mother Teressa Ashay Matri Sambal Yojna.
+								</div>
+								<a href="{% static 'mysite/mother_teresa_asahaya_matri_sambal _yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Mukhyamantri Grahini Suvidha Yojana.
+								</div>
+								<a href="{% static 'mysite/Uttarakhand Mukhyamantri Grihini Suvidha Yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									UK Saubhagyawati Yojana.
+								</div>
+								<a href="{% static 'mysite/Uttarakhand Saubhagyawati Yojana 2021.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Janni Sishu Suraksha Yojana.
+								</div>
+								<a href="{% static 'mysite/janani.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Atal Vardi Yojana.
+									</div>
+									<a href="{% static 'mysite/Atal vardi Yojana.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Free Laptop(10th & 12).
+									</div>
+									<a href="{% static 'mysite/Free Laptop 10th & 12.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Beti Hai Anmol.
+									</div>
+									<a href="{% static 'mysite/Beti Hai Anmol.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Uk Vaishnavi Suraksha Yojana.
+									</div>
+									<a href="{% static 'mysite/Vaishanvi Suraksha.pdf' %}" download>more</a>
+								</div>
+							</div>
+							
+					{% endif %}
+    			{% endif %}
+    			{% if age < 18%}			
+				
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Atal Vardi Yojana.
+									</div>
+									<a href="{% static 'mysite/Atal vardi Yojana.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Free Laptop(10th & 12).
+									</div>
+									<a href="{% static 'mysite/Free Laptop 10th & 12.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Beti Hai Anmol.
+									</div>
+									<a href="{% static 'mysite/Free Laptop 10th & 12.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Uk Vaishnavi Suraksha Yojana.
+									</div>
+									<a href="{% static 'mysite/Vaishanvi Suraksha.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endif %}	
+
+			{% if states == 'uttarPradesh' %}
+    			{% if age >= 18 %}
+					
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									One district one product/Ek Jila Ek Utpadan.
+								</div>
+								<a href="{% static 'mysite/up_one_district_one_product_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									UP Free Laptop Scheme.
+								</div>
+								<a href="{% static 'mysite/up_free_laptop_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									UP Mukhyamantri Krishak Durghatna Kalyan Yojana.
+								</div>
+								<a href="{% static 'mysite/mukhyamantri_krishak_durghatna_kalyan_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container-for">Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Mother Teressa Ashay Matri Sambal Yojna.
+								</div>
+								<a href="{% static 'mysite/mother_teresa_asahaya_matri_sambal _yojana-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									UP Yogi Good Samaritan Scheme.
+								</div>
+								<a href="{% static 'mysite/yogi_good_samaritan_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Widow (Vidhwa) Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/up_widow_pension_scheme-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Old Age (Vridha) Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/up_old_age_pension_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Stand up india.
+								</div>
+								<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+							</div>
+						</div>
+						
+					{% if kids == 'yes' %}
+						
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Free Education Scheme Upto Class 12th.
+									</div>
+									<a href="{% static 'mysite/UP Free Education Scheme Upto Class 12th-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										UP Free School Bag & Uniform Scheme.
+									</div>
+									<a href="{% static 'mysite/UP free school bag and uniform scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										UP Free Laptop Scheme.
+									</div>
+									<a href="{% static 'mysite/up_free_laptop_scheme-converted.pdf.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										UP Mukhyamantri Krishak Durghatna Kalyan Yojana.
+									</div>
+									<a href="{% static 'mysite/mukhyamantri_krishak_durghatna_kalyan_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										UP Yogi Good Samaritan Scheme.
+									</div>
+									<a href="{% static 'mysite/yogi_good_samaritan_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}			
+				
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Free Education Scheme Upto Class 12th.
+									</div>
+									<a href="{% static 'mysite/UP Free Education Scheme Upto Class 12th-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										UP Free School Bag & Uniform Scheme.
+									</div>
+									<a href="{% static 'mysite/UP free school bag and uniform scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										UP Free Laptop Scheme.
+									</div>
+									<a href="{% static 'mysite/up_free_laptop_scheme-converted.pdf.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										UP Mukhyamantri Krishak Durghatna Kalyan Yojana.
+									</div>
+									<a href="{% static 'mysite/mukhyamantri_krishak_durghatna_kalyan_yojana-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										UP Yogi Good Samaritan Scheme.
+									</div>
+									<a href="{% static 'mysite/yogi_good_samaritan_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+					
+						{% endif %}
+					{% endif %}	
+		
+			{% if states == 'westBengal' %}
+    			{% if age >= 18 %}
+				
+					<div class="coin-card-container">Women</div>
+					<div class="coin-card-container">
+						<div class="scheme-card" style="margin-right: 2rem;">
+							<div class="scheme-text">
+								Rupashree Prakalpa.
+							</div>
+							<a href="{% static 'mysite/wb_rupashree_prakalpa_scheme-converted.pdf' %}" download>more</a>
+						</div>
+						<div class="scheme-card" >
+							<div class="scheme-text">
+								Stand up india.
+							</div>
+							<a href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download>more</a>
+						</div>
+					</div>
+					<div class="coin-card-container-for">Men/Women</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Gatidhara.
+								</div>
+								<a href="{% static 'mysite/GATIDHARA SCHEME.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Snehalaya Prakalpa.
+								</div>
+								<a href="{% static 'mysite/west_bengal_snehaloy_housing_scheme-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Pradhan Mantri Suraksha Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Jeevan Jyoti Bima Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Prime Minister Shram Yogi Maandhan Pension Scheme.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan Mantri Vaya Vandana Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card"  style="margin-right: 2rem;">
+								<div class="scheme-text">
+									Atal Pension Yojana.
+								</div>
+								<a href="{% static 'mysite/atal_pension_yojana.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card">
+								<div class="scheme-text">
+									Pradhan mantri mudra yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+						<div class="coin-card-container">
+							<div class="scheme-card" style="margin-right: 2rem;">
+								<div class="scheme-text">
+									INSPIRE scholarship.
+								</div>
+								<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+							</div>
+							<div class="scheme-card" >
+								<div class="scheme-text">
+									Pradhan Mantri Awas Yojana.
+								</div>
+								<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+							</div>
+						</div>
+
+					{% if kids == 'yes' %}
+						
+							<div class="coin-card-container-for">For kids</div>
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sishu Sathi Scheme.
+									</div>
+									<a href="{% static 'mysite/WB Sishu Saathi Scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Snehalaya Prakalpa.
+									</div>
+									<a href="{% static 'mysite/west_bengal_snehaloy_housing_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Kanyashree Prakalpa.
+									</div>
+									<a href="{% static 'mysite/kanyashree_prakalpa_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+										
+						{% endif %}
+					{% endif %}
+					{% if age < 18%}
+
+							<div class="coin-card-container-for">Boys/Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sishu Sathi Scheme.
+									</div>
+									<a href="{% static 'mysite/WB Sishu Saathi Scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card">
+									<div class="scheme-text">
+										Snehalaya Prakalpa.
+									</div>
+									<a href="{% static 'mysite/west_bengal_snehaloy_housing_scheme-converted.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										INSPIRE scholarship.
+									</div>
+									<a href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" >
+									<div class="scheme-text">
+										Pradhan Mantri Awas Yojana.
+									</div>
+									<a href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+							<div class="coin-card-container-for">Girls</div>
+							<div class="coin-card-container">
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Kanyashree Prakalpa.
+									</div>
+									<a href="{% static 'mysite/kanyashree_prakalpa_scheme-converted.pdf' %}" download>more</a>
+								</div>
+								<div class="scheme-card" style="margin-right: 2rem;">
+									<div class="scheme-text">
+										Sukanya simridhi yojana.
+									</div>
+									<a href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download>more</a>
+								</div>
+							</div>
+
+						{% endif %}
+					{% endif %}
+					{% endif %}	
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$('.list').on('change', function() {
+			$('.list').not(this).prop('checked', false);
+		});
+	</script>
+	
+
+	<script src="{% static 'mysite/script.js' %}"></script>
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

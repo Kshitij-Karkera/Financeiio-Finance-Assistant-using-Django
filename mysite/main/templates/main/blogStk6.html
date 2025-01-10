@@ -1,0 +1,83 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Investor Or Trader ?{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Investor Or Trader ?
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/InvestorVsTrader.gif' %}">
+					</div>
+					<div class="top-right-container">
+                        <div class="blog-title">Investor Or Trader ?</div>
+						<div class="blog-description">Trader:</div>
+						<div class="blog-description">1. A trader is of an impatient personality</div>
+						<div class="blog-description">2. Trader takes decision within markets </div>
+						<div class="blog-description">3. Times the market </div>
+						<div class="blog-description">4. Stocks seletion stratergy is based on technical analysis,momentum trading </div>
+						<div class="blog-description">5. Requires real-time data and information to take buy and sell calls hence a trader is on his toes all the time </div>
+						<div class="blog-description">6. Does not pay attention to what the company does and only focuses on the scrip price and trade volume </div>
+						<div class="blog-description">7. Has more risk appetite with a penchant for short term gains. </div>
+						<div class="blog-description">8. Is likely to buy stocks based on recommendations by friends,other stock market traders,media and other external resource </div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="blog-description">Investor</div>
+					<div class="blog-description">1. An investor is slow and steady in approach</div>
+					<div class="blog-description">2. Decision are based on long term consequences hence range from years to decades</div>
+					<div class="blog-description">3. Do not time the market or get bothered by short term market volatilty</div>
+					<div class="blog-description">4. Stock selection stratergy based on fundamental analysis of a business</div>
+					<div class="blog-description">5. Is of a more relaxed disposition,information only regarding fundamnetal needed</div>
+					<div class="blog-description">6. Bases on all decision on the conviction he has on the companys growth prospects</div>
+					<div class="blog-description">7. Possesses lesser risk appetite comparitively invests for long haul</div>
+					<div class="blog-description">8. Invests only when his investment objective aligns with a business.Does his own research and invests only after he completely convinces himself to the potential of a business </div>
+
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+		</script>
+{% endblock scripts%}
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Why To Invest In CryptoCurrency?{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Why To Invest In CryptoCurrency?
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/Why.gif' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Why To Invest In CryptoCurrency?</div>
+						<div class="blog-description" style="align-items: center;">
+							As the cryptocurrency market evolves, investing in virtual coins has become much easier than it used to be a few years ago. While investor interest has peaked after the cryptocurrency boom of 2020, there are several critical issues that need to be addressed
+						</div>
+						<div class="blog-description">
+							Investing in cryptocurrencies has become a subject of debate over the past few weeks, owing to the high level of volatility seen in the virtual coin trading space — several rounds of ups and downs have been witnessed in the crypto market in a matter of two weeks.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Incredible returns </div>
+						<div class="blog-sub-description">Let us get the most notable thing out of the way first – cryptocurrencies have been around for a relatively short time, but so far they can be more profitable than most other investments. For example, the highest return you can expect from US stocks is about 20%, which is considered a very solid result. Cryptocurrencies tend to show wide changes in their prices over relatively short periods. It is risky – but high profits are never sure, and such potential is hard to find in other assets. Many people lose money in cryptotrading because they try to do it without any specific strategy.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Independent alternative</div>
+						<div class="blog-sub-description">With major wealth investors predicting a stock market crash in 2020, cryptocurrency may be a safer alternative to more traditional investment solutions. Opposing theories exist on how cryptocurrencies would behave in the event of a crash – after all, they emerged after the 2008 crash (and as a reaction to it). Some experts believe they will thrive, while pessimists predict that they will be negatively affected, just like everything else</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Your money is yours alone</div>
+						<div class="blog-sub-description">Cryptocurrencies offer you a level of independence impossible with other means. When you keep your money in a bank, you are at the mercy of other people and organizations. At any moment, your access to the money that is rightfully yours can be limited or closed by the bank outside of governmental structures. The bank can be robbed or go bankrupt.</div>
+						<div class="blog-sub-description">With cryptocurrencies, your money is yours only and stays yours forever. You do not rely on financial institutions for holding or transferring it. You do not have to pay their exorbitant fees. In the long run, it can become the basis of a truly open and decentralized economy. By investing now, you can be at the forefront of it all.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">High liquidity</div>
+						<div class="blog-sub-description">One of the primary characteristics of any asset is its liquidity – that is, how easy it is to purchase or sell it at a price close to the market rate. By their very nature, cryptocurrencies have very high liquidity – you can quickly and easily buy and sell them, and the technological organization of trading platforms allows the use of a wide variety of tools and tactics, such as limit-orders (automated buying and selling at a specified price) and algorithm-based trading.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Simplicity</div>
+						<div class="blog-sub-description">Getting into any kind of investment, be it stocks, bonds, or something else entirely, is traditionally complicated, bothersome, and time-consuming. Many investment opportunities (for example, real estate) have an extremely high entry threshold – you cannot just invest 100 bucks; you need a much more significant sum at your disposal to even get started</div>
+						<div class="blog-sub-description">Cryptocurrencies are a real sign of the times; both joining and taking part is simple. You do not have to deal with any institutions, sign papers, or visit banks. You simply create an account, get a wallet, and track all your assets with no effort at all</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Favorable forecasts</div>
+						<div class="blog-sub-description">If you do not have previous experience, trying to profit through day-to-day trading in cryptocurrencies is likely to both lose your money and drive you mad. Price fluctuations happen daily, and they are often much more significant than what you may be used to with regular currencies. A much better solution is to invest for the long-term – currently, most cryptocurrencies are going through a downward trend, but most forecasts are favorable and show growth within two to five years. And when we say “growth” in relation to cryptocurrencies, it is often explosive.</div>
+						<div class="blog-sub-description">Just like any other potentially high-return investment, cryptocurrencies carry a particular risk – but it is more than offset by the degree of independence they offer.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

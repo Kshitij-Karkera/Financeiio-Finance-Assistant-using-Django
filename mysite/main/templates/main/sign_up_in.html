@@ -1,0 +1,123 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mysite/sign_up_in.css' %}" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <title>Sign Up/In</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container a-container" id="a-container">
+            <form method="POST" class="form" id="a-form" action="{% url 'sign_up_in' %}">
+                {% csrf_token %}
+                <h2 class="form_title title">Create Account</h2>
+                <div id="app">	
+                    <input class="form__input" type="text" placeholder="Name" name="uname">
+                    <input class="form__input" type="text" placeholder="Email" name="email">
+                    <input class="form__input" type="password" @input="checkPassword" v-model="password" autocomplete="off" placeholder="Password" name="password"/>
+                    <h3 style="margin-top: 10px; margin-bottom: 5px;">Password Conditions : </h3>
+                    <ul>
+                        <li v-bind:class="{ is_valid: contains_eight_characters }">8 Characters</li>
+                        <li v-bind:class="{ is_valid: contains_number }">Contains Number</li>
+                        <li v-bind:class="{ is_valid: contains_uppercase }">Contains Uppercase</li>
+                        <li v-bind:class="{ is_valid: contains_special_character }">Contains Special Character</li>
+                    </ul>
+            
+                    <div class="checkmark_container" v-bind:class="{ show_checkmark: valid_password }">		
+                        <svg width="50%" height="50%" viewBox="0 0 140 100">
+                            <path class="checkmark" v-bind:class="{ checked: valid_password }" d="M10,50 l25,40 l95,-70" />
+                        </svg>
+                    </div>
+                </div>
+                {% if signupall == 'yes' %}
+                <h3 style="position: absolute; color: red; top: 145px;">All fields are required</h3>
+                {% endif %}
+                {% if userexist == 'yes' %}
+                <h3 style="position: absolute; color: red; top: 145px;">Email Is Already Registered</h3>
+                {% endif %}
+                {% if pwdruls == 'no' %}
+                <h3 style="position: absolute; color: red; top: 145px;">Please Follow Password Rules</h3>
+                {% endif %}
+                {% if accsucc == 'yes' %}
+                <h3 style="position: absolute; color: #00ff4c; top: 145px;">Account Is Succesfully Created</h3>
+                {% endif %}
+                <button class="button" type="submit" name="sign_up" value="sign_up">SIGN UP</button>
+            </form>
+        </div>
+        <div class="container b-container" id="b-container">
+            <form method="POST" class="form" id="b-form">
+                {% csrf_token %}
+                <h2 class="form_title title">Sign in to Website</h2>
+                <input class="form__input" type="text" placeholder="Email" name="SEmail">
+                <input class="form__input" type="password" placeholder="Password" name="SPassword">
+                {% if emptyfield == 'yes' %}
+                <h3 style="position:relative;color: red;top: 10px;">All fields are required</h3>
+                {% endif %}
+                {% if emailandpass == 'no' %}
+                <h3 style="position:relative;color: red;top: 10px;">Email/Password is incorrect</h3>
+                {% endif %}
+                <a class="form__link" href="/fpass" style="text-decoration: none;">Forgot your password?</a>
+
+                <button class="button" name="sign_in" value="sign_in">SIGN IN</button>
+            </form>
+        </div>
+        <div class="switch" id="switch-cnt">
+        <div class="switch__circle"></div>
+        <div class="switch__circle switch__circle--t"></div>
+        <div class="switch__container" id="switch-c1">
+            <h2 class="switch__title title">Welcome Back !</h2>
+            <p class="switch__description description">To stay connected with us please login with your personal info</p>
+            <button class="switch__button button switch-btn">SIGN IN</button>
+        </div>
+        <div class="switch__container is-hidden" id="switch-c2">
+            <h2 class="switch__title title">Hello Friend !</h2>
+            <p class="switch__description description">Enter your personal details and start journey with us</p>
+            <button class="switch__button button switch-btn">SIGN UP</button>
+        </div>
+    </div>
+    <script>
+        const App = new Vue({
+    el: "#app",
+    data: {
+    password: null,
+    password_length: 0,
+        contains_eight_characters: false,
+    contains_number: false,
+    contains_uppercase: false,
+        contains_special_character: false,
+    valid_password: false
+    },
+
+    methods: {
+    checkPassword() {
+        this.password_length = this.password.length;
+            const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+            
+        if (this.password_length > 8) {
+        this.contains_eight_characters = true;
+        } else {
+        this.contains_eight_characters = false;
+            }
+            
+        this.contains_number = /\d/.test(this.password);
+        this.contains_uppercase = /[A-Z]/.test(this.password);
+            this.contains_special_character = format.test(this.password);
+        
+        if (this.contains_eight_characters === true &&
+                    this.contains_special_character === true &&
+                    this.contains_uppercase === true &&
+                    this.contains_number === true) {
+                        this.valid_password = true;			
+        } else {
+        this.valid_password = false;
+        }
+    }
+    }
+    });
+    </script>
+<script src="{% static 'mysite/sign_up_in.js' %}"></script>
+</body>
+</html>

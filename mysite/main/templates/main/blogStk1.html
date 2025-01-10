@@ -1,0 +1,144 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Knowing Stock Market? Part1{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Knowing Stock Market? Part1
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/KnowingStock1.jpg' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Knowing Stock Market? Part 1</div>
+						<div class="blog-description">
+							All companies need money to run their business. Sometimes the profit acquired from selling goods or services is not sufficient to meet the working capital requirements. And so, companies invite normal people like you and me to put some money in their company so that they can run it efficiently and in return investors get a share of whatever profit the company make. Understanding this is the first step towards understanding stock market basics. Let’s learn about this in detail.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">What Are Shares?</div>
+						<div class="blog-sub-description">Shares are a way to own a part of the company’s value. In proportion to the capital you invest, you can get ownership rights to a certain percentage in the company.  Say you own 2% of the shares being traded in the market, you can say you have 2% ownership in the company.</div>
+						<div class="blog-sub-description">Hence, shares are units of ownership in the company and its financial assets. Shares are also known as stocks, equity, scrips etc. After purchasing them you will be known as a stockholder or a shareholder of the company.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Why Do Companies Need Shares?</div>
+						<div class="blog-sub-description">Why does a company need money from the market? As mentioned before, when a company is scaling up, expanding its business etc, it will need more capital. During such times, a company can tap into the share market and offer a certain number of shares based on its market value, which investors can buy.</div>
+						<div class="blog-sub-description">Investors will be paying the company some money and in return get to be part owners. So when the value of shares rises, the value of shares investors own rises. Investors are however not lending money to the company so they are not creditors. These indeed share market basics for beginners because it is essential to understand why companies need shares at all.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">How Do Companies Lists Its Shares?</div>
+						<div class="blog-sub-description">Another important aspect of share market basics is Initial Public Offering (IPO). The first time a company offers its shares to the public, it is called an IPO. Securities and Exchange Board of India (Sebi), our markets regulator, has laid out a few rules and regulations for a company to list its IPO on exchanges which they have to comply with before being eligible for listing..</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">What IS S.E.B.I ?</div>
+						<div class="blog-sub-description">Securities and Exchange Board of India is the securities market regulator to oversee any fraudulent transactions and activities made by any of the parties: companies, investors, traders, brokers and the likes.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">What Are Stock Exchange And How Many Exchanges Are There ?</div>
+						<div class="blog-sub-description">Stock exchanges is a place or a platform where traders and buyers come together to buy and sell stocks. There are two primary stock exchanges in the country: Bombay Stock Exchange (BSE) and National Stock Exchange (NSE). This is extremely important information to know about stock market basics in India</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">What are Nifty and Sensex?</div>
+						<div class="blog-sub-description">All companies who want to get listed approach either NSE, BSE or both. All stock exchanges need equity benchmarks to signify the trend in the stock market in the best way possible. Both BSE and NSE have 100s and 1000s of companies listed on them. But if you have to pick the top 30 stocks, or look at what the bottom 100 are doing, it will be difficult for you to siphon through this huge number of companies listed. What indices like Nifty and Sensex do is to group them together. Nifty 50 is a collection of the top 50 companies listed on NSE and Sensex is a collection of the top 30 stocks listed on BSE by way of market capitalisation. The top companies are the ones that influence the stock market the most and influence the country’s economy the most. Hence an index with the top and largest companies is the best gauge for understanding how the entire stock market was on a paticular day. There is also BSE500, Nifty Midcap, BSE Smallcap and many more such indices. However, Nifty 50 and Sensex are primary benchmarks. There are sectoral indices as well; Nifty Pharma, BSEBankex, Nifty PSU and many such sectoral indices that group the top stocks in each sector which helps us to understand how the sector is doing. In Short: Indices tell us in a short, concise and easy way, how is the market doing.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

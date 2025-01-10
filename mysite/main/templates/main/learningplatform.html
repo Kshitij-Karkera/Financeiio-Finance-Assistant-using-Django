@@ -1,0 +1,237 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/learningplatform.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Learning Platform{% endblock title %}</title>
+</head>
+<body>
+	{% block currentsecname %}
+		Learning Platform
+	{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+
+            <div class="main-container1">
+                <div class="tutorials-topic">
+                    <div class="tutorials-header"><h1>Crypto</h1></div>
+                    <form method="post" style="width: 280px;">{% csrf_token %}<a href="/blogCryp1"><div class="tutorials-cards">Introduction To Cryptocurrency</div></a></form>
+                    <form method="post" style="width: 270px;">{% csrf_token %}<a href="/blogCryp2"><div class="tutorials-cards">Understanding Cryptocurrency</div></a></form>
+                    <form method="post" style="width: 410px;">{% csrf_token %}<a href="/blogCryp3"><div class="tutorials-cards">Advantages & Disadvantages Of Cryptocurrency</div></a></form>
+                    <form method="post" style="width: 290px;">{% csrf_token %}<a href="/blogCryp4"><div class="tutorials-cards">Why To Invest In CryptoCurrency?</div></a></form>
+                    <form method="post" style="width: 230px;">{% csrf_token %}<a href="/blogCryp5"><div class="tutorials-cards">Famous Cryptocurrencies</div></a></form>
+                    <form method="post" style="width: 230px;">{% csrf_token %}<a href="/blogCryp6"><div class="tutorials-cards">Future Of Cryptocurrency</div></a></form>
+                    <form method="post" style="width: 300px;">{% csrf_token %}<a href="/blogCryp7"><div class="tutorials-cards">Should You Invest In Cryptography?</div></a></form>
+                </div>
+                <div class="tutorials-topic">
+                    <div class="tutorials-header"><h1>Stocks</h1></div>
+                    <form method="post" style="width: 270px;">{% csrf_token %}<a href="/blogStk1"><div class="tutorials-cards">Knowing Stock Market? Part - 1</div></a></form>
+                    <form method="post" style="width: 270px;">{% csrf_token %}<a href="/blogStk2"><div class="tutorials-cards">Knowing Stock Market? Part - 2</div></a></form>
+                    <form method="post" style="width: 270px;">{% csrf_token %}<a href="/blogStk3"><div class="tutorials-cards">Knowing Stock Market? Part - 3</div></a></form>
+                    <form method="post" style="width: 100px;">{% csrf_token %}<a href="/blogStk4"><div class="tutorials-cards">Investing</div></a></form>
+                    <form method="post" style="width: 90px;">{% csrf_token %}<a href="/blogStk5"><div class="tutorials-cards">Trading</div></a></form>
+                    <form method="post" style="width: 180px;">{% csrf_token %}<a href="/blogStk6"><div class="tutorials-cards">Investor or Trader?</div></a></form>
+                    <form method="post" style="width: 170px;">{% csrf_token %}<a href="/blogStk7"><div class="tutorials-cards">Stock Market Tips</div></a></form>
+                </div>
+                <div class="tutorials-topic">
+                    <div class="tutorials-header"><h1>Government Schemes</h1></div>
+                    <a style="width: 170px;" href="{% static 'mysite/abadana_scheme.pdf' %}" download><div class="tutorials-cards">Abadana Scheme</div></a>
+                    <a style="width: 300px;" href="{% static 'mysite/arogya_karnataka_health_scheme-converted.pdf' %}" download><div class="tutorials-cards">Arogya Karnataka Health Scheme</div></a>
+                    <a style="width: 210px;" href="{% static 'mysite/Atal Ayushman Yojana.pdf' %}" download><div class="tutorials-cards">Atal Ayushman Yojana</div></a>
+                    <a style="width: 160px;" href="{% static 'mysite/Atal vardi Yojana.pdf' %}" download><div class="tutorials-cards">Atal vardi Yojana</div></a>
+                    <a style="width: 180px;" href="{% static 'mysite/atal_pension_yojana.pdf' %}" download><div class="tutorials-cards">Atal Pension Yojana</div></a>
+                    <a style="width: 200px;" href="{% static 'mysite/bal_sangopan_yojana-converted.pdf' %}" download><div class="tutorials-cards">Bal Sandopan Yojana</div></a>
+                    <a style="width: 150px;" href="{% static 'mysite/Beti Hai Anmol.pdf' %}" download><div class="tutorials-cards">Beti Hai Anmol</div></a>
+                    <a style="width: 410px;" href="{% static 'mysite/chhatisgarh_mukhyamantri_bal_sandarbh_yojana-converted.pdf' %}" download><div class="tutorials-cards">Chhatisgarh Mukhyamantri Bal Sandarbh Yojana</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/chhattisgarh_dhanlaxmi_yojana-converted.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Dhanlaxmi Yojana</div></a>
+                    <a style="width: 340px;" href="{% static 'mysite/chhattisgarh_free_smartphone_scheme-converted.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Free Smartphone Scheme</div></a>
+                    <a style="width: 360px;" href="{% static 'mysite/chhattisgarh_kaushalya_maternity_scheme-converted.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Kaushalya Maternity Scheme</div></a>
+                    <a style="width: 460px;" href="{% static 'mysite/chhattisgarh_mukhyamantri_bal_hriday_suraksha_yojana-converted.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Mukhyamantri Bal Hriday Suraksha Yojana</div></a>
+                    <a style="width: 440px;" href="{% static 'mysite/chhattisgarh_mukhyamantri_gyan_protsahan_yojana.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Mukhyamantri Gyan Protsahan Yojana</div></a>
+                    <a style="width: 390px;" href="{% static 'mysite/chhattisgarh_mukhyamantri_kanyadan_yojana-converted.pdf' %}" download><div class="tutorials-cards">Chhattisgarh Mukhyamantri Kanyadan Yojana</div></a>
+                    <a style="width: 185px;" href="{% static 'mysite/delhi_ladli_scheme-converted.pdf' %}" download><div class="tutorials-cards">Delhi Ladli Scheme</div></a>
+                    <a style="width: 185px;" href="{% static 'mysite/Dr Ambedkar Avas.pdf' %}" download><div class="tutorials-cards">Dr Ambedkar Avas</div></a>
+                    <a style="width: 490px;" href="{% static 'mysite/Dr Ambedkar Pre-Matric & post Matric Scholarship Gujarat.pdf' %}" download><div class="tutorials-cards">Dr. Ambedkar Pre-Matric & Post Matric Scholarship Gujarat</div></a>
+                    <a style="width: 190px;" href="{% static 'mysite/Free Laptop 10th & 12.pdf' %}" download><div class="tutorials-cards">Free Laptop 10th & 12</div></a>
+                    <a style="width: 620px;" href="{% static 'mysite/Govt. of India Pre-Matric Scholarship for SC Students Std. 9 and 10 Gujarat.pdf' %}" download><div class="tutorials-cards">Govt. of India Pre-Matric Scholarship for SC Students Std. 9th and 10th Gujarat</div></a>
+                    <a style="width: 400px;" href="{% static 'mysite/haryana_mukhyamantri_parivar_samridhi_yojana-converted.pdf' %}" download><div class="tutorials-cards">Haryana Mukhyamantri Parivar Samridhi Yojana</div></a>
+                    <a style="width: 175px;" href="{% static 'mysite/inspire_scholarship-converted.pdf' %}" download><div class="tutorials-cards">Inspire Scholarship</div></a>
+                    <a style="width: 310px;" href="{% static 'mysite/janani.pdf' %}" download><div class="tutorials-cards">Janani Shishu Suraksha Karyakaram</div></a>
+                    <a style="width: 260px;" href="{% static 'mysite/kanyashree_prakalpa_scheme-converted.pdf' %}" download><div class="tutorials-cards">Kanyashree Prakalpa Scheme</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/Kasturba Poshan Sahay Yojana.pdf' %}" download><div class="tutorials-cards">Kasturba Poshan Sahay Yojana</div></a>
+                    <a style="width: 380px;" href="{% static 'mysite/mother_teresa_asahaya_matri_sambal _yojana-converted.pdf' %}" download><div class="tutorials-cards">Mother Teresa Asahaya Matri Sambal Yojana</div></a>
+                    <a style="width: 410px;" href="{% static 'mysite/mukhyamantri_krishak_durghatna_kalyan_yojana-converted.pdf' %}" download><div class="tutorials-cards">Mukhyamantri Krishak Durghatna Kalyan Yojana</div></a>
+                    <a style="width: 230px;" href="{% static 'mysite/odisha_sampurna_yojana-converted.pdf' %}" download><div class="tutorials-cards">Odisha Sampurna Yojana</div></a>
+                    <a style="width: 200px;" href="{% static 'mysite/PanditDinDayalAvas.pdf' %}" download><div class="tutorials-cards">Pandit Din Dayal Avas</div></a>
+                    <a style="width: 250px;" href="{% static 'mysite/pradhan_mantri_awas_yojana.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Awas Yojana</div></a>
+                    <a style="width: 350px;" href="{% static 'mysite/pradhan_mantri_jeevan_jyoti_bima_yojana.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Jeevan Jyoti Bima Yojana</div></a>
+                    <a style="width: 260px;" href="{% static 'mysite/pradhan_mantri_mudra_yojana.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Mudra Yojana</div></a>
+                    <a style="width: 390px;" href="{% static 'mysite/pradhan_mantri_shram_yogi_maandhan_yojana.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Shram Yogi Maandhan Yojana</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/pradhan_mantri_suraksha_bima_yojana.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Suraksha Bima Yojana</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/pradhan_mantri_vaya_vandana_yojana-converted.pdf' %}" download><div class="tutorials-cards">Pradhan Mantri Vaya Vandana Yojana</div></a>
+                    <a style="width: 320px;" href="{% static 'mysite/rajasthan_menstrual_hygiene_scheme-converted.pdf' %}" download><div class="tutorials-cards">Rajasthan Menstrual Hygiene Scheme</div></a>
+                    <a style="width: 400px;" href="{% static 'mysite/SC OBC Coaching Scheme with Stipened Gujarat.pdf' %}" download><div class="tutorials-cards">SC OBC Coaching Scheme with Stipened Gujarat</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/Shri Vajpayee Bankable Yojana.pdf' %}" download><div class="tutorials-cards">Shri Vajpayee Bankable Yojana</div></a>
+                    <a style="width: 210px;" href="{% static 'mysite/stand_up_india_scheme.pdf' %}" download><div class="tutorials-cards">Stand Up India Scheme</div></a>
+                    <a style="width: 240px;" href="{% static 'mysite/sukanya_samriddhi_yojana.pdf' %}" download><div class="tutorials-cards">Sukanya Samriddhi Yojana</div></a>
+                    <a style="width: 370px;" href="{% static 'mysite/Uttarakhand Gaura Devi KAnya Dhan Yojana.pdf' %}" download><div class="tutorials-cards">Uttarakhand Gaura Devi Kanya Dhan Yojana</div></a>
+                    <a style="width: 480px;" href="{% static 'mysite/Uttarakhand Mother Teresa Asahaya Matri Sambal Yojana.pdf' %}" download><div class="tutorials-cards">Uttarakhand Mother Teresa Asahaya Matri Sambal Yojana</div></a>
+                    <a style="width: 430px;" href="{% static 'mysite/Uttarakhand Mukhyamantri Grihini Suvidha Yojana.pdf' %}" download><div class="tutorials-cards">Uttarakhand Mukhyamantri Grihini Suvidha Yojana</div></a>
+                    <a style="width: 320px;" href="{% static 'mysite/Uttarakhand Old Age Pension Scheme.pdf' %}" download><div class="tutorials-cards">Uttarakhand Old Age Pension Scheme</div></a>
+                    <a style="width: 350px;" href="{% static 'mysite/Uttarakhand Saubhagyawati Yojana 2021.pdf' %}" download><div class="tutorials-cards">Uttarakhand Saubhagyawati Yojana 2021</div></a>
+                    <a style="width: 180px;" href="{% static 'mysite/Vaishanvi Suraksha.pdf' %}" download><div class="tutorials-cards">Vaishanvi Suraksha</div></a>
+                    <a style="width: 350px;" href="{% static 'mysite/wb_rupashree_prakalpa_scheme-converted.pdf' %}" download><div class="tutorials-cards">West Bangal Rupashree Prakalpa Scheme</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/mahadbt_scholarship_scheme-converted.pdf' %}" download><div class="tutorials-cards">MahaDBT Scholarship Scheme</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/sanjay_gandhi_niradhar_yojana-converted.pdf' %}" download><div class="tutorials-cards">Sanjay Gandhi Niradhar Yojana</div></a>
+                    <a style="width: 470px;" href="{% static 'mysite/maharashtra_shravan_bal_seva_rajya_nivruttivetan_yojana-converted.pdf' %}" download><div class="tutorials-cards">Maharashtra Shravan Bal Seva Rajya Nivruttivetan Yojana</div></a>
+                    <a style="width: 290px;" href="{% static 'mysite/majhI_kanya_bhagyashree_yojana-converted.pdf' %}" download><div class="tutorials-cards">Majhl Kanya Bhagyashree Yojana</div></a>
+                    <a style="width: 340px;" href="{% static 'mysite/west_bengal_snehaloy_housing_scheme-converted.pdf' %}" download><div class="tutorials-cards">West Bengal Snehaloy Housing Scheme</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/kerala_vayomadhuram_scheme-converted.pdf' %}" download><div class="tutorials-cards">Kerala Vayomadhuram Scheme</div></a>
+                    <a style="width: 210px;" href="{% static 'mysite/state_merit_scholarship-converted.pdf' %}" download><div class="tutorials-cards">State Merit Scholarship</div></a>
+                    <a style="width: 210px;" href="{% static 'mysite/kerala_she_pad_scheme-converted.pdf' %}" download><div class="tutorials-cards">Kerala She Pad Scheme</div></a>
+                    <a style="width: 300px;" href="{% static 'mysite/kerala_free_school_uniform_scheme-converted.pdf' %}" download><div class="tutorials-cards">Kerala Free School Uniform Scheme</div></a>
+                    <a style="width: 180px;" href="{% static 'mysite/kerala_life_mission-converted.pdf' %}" download><div class="tutorials-cards">Kerala Life Mission</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/kerala_district_merit_scholarship-converted.pdf' %}" download><div class="tutorials-cards">Kerala District Merit Scholarship</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/entrepreneur_support_scheme-converted.pdf' %}" download><div class="tutorials-cards">Entrepreneur Support Scheme</div></a>
+                    <a style="width: 310px;" href="{% static 'mysite/karnataka_saptapadi_vivah_yojana-converted.pdf' %}" download><div class="tutorials-cards">Karnataka Saptapadi Vivah Yojana</div></a>
+                    <a style="width: 300px;" href="{% static 'mysite/rashtriya_bal_swasthya_karyakram-converted.pdf' %}" download><div class="tutorials-cards">Rashtriya Bal Swasthya Karyakram</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/karnataka_mathrushree_scheme-converted.pdf' %}" download><div class="tutorials-cards">Karnataka Mathrushree Scheme</div></a>
+                    <a style="width: 320px;" href="{% static 'mysite/karnataka_prabuddha_scheme_for_sc-converted.pdf' %}" download><div class="tutorials-cards">Karnataka Prabuddha Scheme for SC</div></a>
+                    <a style="width: 360px;" href="{% static 'mysite/karnataka_cm_bengaluru_housing_scheme-converted.pdf' %}" download><div class="tutorials-cards">Karnataka CM Bengaluru Housing Scheme</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/karnataka_free_laptop_scheme-converted.pdf' %}" download><div class="tutorials-cards">Karnataka Free Laptop Scheme</div></a>
+                    <a style="width: 290px;" href="{% static 'mysite/arogya_karnataka_health_scheme-converted.pdf' %}" download><div class="tutorials-cards">Arogya Karnataka Health Scheme</div></a>
+                    <a style="width: 460px;" href="{% static 'mysite/hp_mukhyamantri_swavalamban_yojana-converted.pdf' %}" download><div class="tutorials-cards">Himachal Pradesh Mukhyamantri Swavalamban Yojana</div></a>
+                    <a style="width: 340px;" href="{% static 'mysite/hp_beti_hai_anmol_yojana-converted.pdf' %}" download><div class="tutorials-cards">Himachal Pradesh Beti Hai Anmol Yojana</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/himachal_pradesh_cm_startup_scheme-converted.pdf' %}" download><div class="tutorials-cards">Himachal Pradesh CM Startup Scheme</div></a>                    
+                    <a style="width: 350px;" href="{% static 'mysite/himachal_pradesh_grihini_suvidha_yojana-converted.pdf' %}" download><div class="tutorials-cards">Himachal Pradesh Grihini Suvidha Yojana</div></a>
+                    <a style="width: 440px;" href="{% static 'mysite/Assistance for miscarriage or termination of pregancy.pdf' %}" download><div class="tutorials-cards">Assistance for miscarriage or termination of pregancy</div></a>
+                    <a style="width: 190px;" href="{% static 'mysite/Marriage Assistance.pdf' %}" download><div class="tutorials-cards">Marriage Assistance</div></a>
+                    <a style="width: 530px;" href="{% static 'mysite/Adi Dravidar and Tribal Welfare Department Stationary Text Books.pdf' %}" download><div class="tutorials-cards">Adi Dravidar and Tribal Welfare Department Stationary Text Books</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/Assistance For delivery of child.pdf' %}" download><div class="tutorials-cards">Assistance For delivery of child</div></a>
+                    <a style="width: 680px;" href="{% static 'mysite/Adi Dravidar and Tribal Welfare Department Scholarship Free Education Upto 12th Std.pdf' %}" download><div class="tutorials-cards">Adi Dravidar and Tribal Welfare Department Scholarship Free Education Upto 12th Std</div></a>
+                    <a style="width: 320px;" href="{% static 'mysite/Bebe Nanki Laadli Beti Kalyan Scheme-converted.pdf' %}" download><div class="tutorials-cards">Bebe Nanki Laadli Beti Kalyan Scheme</div></a>
+                    <a style="width: 570px;" href="{% static 'mysite/mp_mukhyamantri_jan_kalyan_shiksha_protsahan_yojana-converted.pdf' %}" download><div class="tutorials-cards">Madhya Pradesh Mukhyamantri Jan Kalyan Shiksha Protsahan Yojana</div></a>
+                    <a style="width: 510px;" href="{% static 'mysite/National Scheme of Incentive to Girls for Secondary Education-converted.pdf' %}" download><div class="tutorials-cards">National Scheme of Incentive to Girls for Secondary Education</div></a>
+                    <a style="width: 350px;" href="{% static 'mysite/mp_indira_grah_jyoti_yojana-converted.pdf' %}" download><div class="tutorials-cards">Madhya Pradesh Indira Grah Jyoti Yojana</div></a>
+                    <a style="width: 490px;" href="{% static 'mysite/mp_mukhyamantri_medhavi_vidyarthi_yojana-converted.pdf' %}" download><div class="tutorials-cards">Madhya Pradesh Mukhyamantri Medhavi Vidyarthi Yojana</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/up_widow_pension_scheme-converted.pdf' %}" download><div class="tutorials-cards">Uttar Pradesh Widow Pension Scheme</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/ayushman_bharat_niramayam_yojana.pdf' %}" download><div class="tutorials-cards">Ayushman Bharat Niramayam Yojana</div></a>
+                    <a style="width: 260px;" href="{% static 'mysite/yogi_good_samaritan_scheme-converted.pdf' %}" download><div class="tutorials-cards">Yogi Good Samaritan Scheme</div></a>
+                    <a style="width: 340px;" href="{% static 'mysite/up_old_age_pension_scheme-converted.pdf' %}" download><div class="tutorials-cards">Uttar Pradesh Old Age Pension Scheme</div></a>
+                    <a style="width: 400px;" href="{% static 'mysite/up_one_district_one_product_scheme-converted.pdf' %}" download><div class="tutorials-cards">Uttar Pradesh One District One Product Scheme</div></a>
+                    <a style="width: 300px;" href="{% static 'mysite/up_free_laptop_scheme-converted.pdf' %}" download><div class="tutorials-cards">Uttar Pradesh Free Laptop Scheme</div></a>
+                    <a style="width: 280px;" href="{% static 'mysite/Punjab Old Age Pension Scheme.pdf' %}" download><div class="tutorials-cards">Punjab Old Age Pension Scheme</div></a>
+                    <a style="width: 270px;" href="{% static 'mysite/National Family Benefit Scheme.pdf' %}" download><div class="tutorials-cards">National Family Benefit Scheme</div></a>
+                    <a style="width: 400px;" href="{% static 'mysite/National Means-Cum-Merit Scholarship Scheme.pdf' %}" download><div class="tutorials-cards">National Means-Cum-Merit Scholarship Scheme</div></a>
+                    <a style="width: 320px;" href="{% static 'mysite/Indra Gandhi .pdf' %}" download><div class="tutorials-cards">Indra Gandhi Matritva Sehyog Yojana</div></a>
+                    <a style="width: 370px;" href="{% static 'mysite/Concessional Travel.pdf' %}" download><div class="tutorials-cards">Concessional Bus Travel Facility for Women</div></a>
+                    <a style="width: 390px;" href="{% static 'mysite/Rajasthan Mukhyamantri Yuva Sambal Yojana.pdf' %}" download><div class="tutorials-cards">Rajasthan Mukhyamantri Yuva Sambal Yojana</div></a>
+                    <a style="width: 480px;" href="{% static 'mysite/Mukhyamantri Vishesh Yogyajan Samman Pension Yojana.pdf' %}" download><div class="tutorials-cards">Mukhyamantri Vishesh Yogyajan Samman Pension Yojana</div></a>
+                    <a style="width: 410px;" href="{% static 'mysite/Mukhya Mantri Ekal Nari Samman Pension Yojana.pdf' %}" download><div class="tutorials-cards">Mukhya Mantri Ekal Nari Samman Pension Yojana</div></a>
+                    <a style="width: 400px;" href="{% static 'mysite/Mukhya Mantri Old Age Samman Pension Yojana.pdf' %}" download><div class="tutorials-cards">Mukhya Mantri Old Age Samman Pension Yojana</div></a>
+                    <a style="width: 210px;" href="{% static 'mysite/Gargi Award Rajasthan.pdf' %}" download><div class="tutorials-cards">Gargi Award Rajasthan</div></a>
+                    <a style="width: 330px;" href="{% static 'mysite/Anuprati Coaching Yojana For Students.pdf' %}" download><div class="tutorials-cards">Anuprati Coaching Yojana For Students</div></a>
+                    <a style="width: 430px;" href="{% static 'mysite/Chief Minister Higher Education Scholarship Scheme.pdf' %}" download><div class="tutorials-cards">Chief Minister Higher Education Scholarship Scheme</div></a>
+                    <a style="width: 300px;" href="{% static 'mysite/Dava Yojana.pdf' %}" download><div class="tutorials-cards">Mukhyamantri Nishulk Dava Yojna</div></a>
+                    <a style="width: 520px;" href="{% static 'mysite/dr_hargobind_khurana_scholarship_scheme_ for_brilliant_students-converted.pdf' %}" download><div class="tutorials-cards">Dr Hargobind Khurana Scholarship Scheme for Brilliant Students</div></a>
+                    <a style="width: 350px;" href="{% static 'mysite/punjab_chief_minister_scholarship_scheme-converted.pdf' %}" download><div class="tutorials-cards">Punjab Chief Minister Scholarship Scheme</div></a>
+                </div>
+            </div>
+
+			{% endblock contentwrapper %}
+
+		{% block scripts%}
+	<script type="text/javascript">
+		$('.list').on('change', function() {
+			$('.list').not(this).prop('checked', false);
+		});
+	</script>
+	
+	<script src="{% static 'mysite/script.js' %}"></script>
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

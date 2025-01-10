@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/dashboard.css' %}">
+	<title>Dashboard</title>
+</head>
+<body>
+	<div class="dark-light">
+	    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+	     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+	   </div>
+	<div class="app">
+	 <div class="header">
+	 	<a href="#">
+	      <h4 class="namedark">FINANCIIO</h4>
+	     </a>
+	  	
+	  <div class="header-profile">
+	   <div class="notification">
+	    <span class="notification-number">3</span>
+	    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+	     <path class="notify-bell" d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+	    </svg>
+	   </div>
+	   <img class="profile-img" src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="">
+	  </div>
+	 </div>
+	 <div class="wrapper">
+	  <div class="left-side">
+	   <div class="side-wrapper">
+	    <div class="side-menu">
+	     <a href="#">
+	      <svg viewBox="0 0 512 512" fill="currentColor">
+	       <path d="M196 151h-75v90h75c24.814 0 45-20.186 45-45s-20.186-45-45-45z" />
+	       <path d="M467 0H45C20.186 0 0 20.186 0 45v422c0 24.814 20.186 45 45 45h422c24.814 0 45-20.186 45-45V45c0-24.814-20.186-45-45-45zM196 271h-75v105c0 8.291-6.709 15-15 15s-15-6.709-15-15V136c0-8.291 6.709-15 15-15h90c41.353 0 75 33.647 75 75s-33.647 75-75 75zm210-60c8.291 0 15 6.709 15 15s-6.709 15-15 15h-45v135c0 8.291-6.709 15-15 15s-15-6.709-15-15V241h-15c-8.291 0-15-6.709-15-15s6.709-15 15-15h15v-45c0-24.814 20.186-45 45-45h30c8.291 0 15 6.709 15 15s-6.709 15-15 15h-30c-8.276 0-15 6.724-15 15v45h45z" />
+	      </svg>
+	      Portfolio
+	     </a>
+	     <a href="#">
+	       <svg viewBox="0 0 122.88 84" fill="currentColor">
+	      <path  d="M0,84c1.01-13.1-1.56-12.53,9.41-16.64c5.48-2.05,12.47-4.65,17.5-7.79L36.32,84L0,84L0,84z M47.06,71.01h1.31 c1.18,0,2.15-0.97,2.15-2.15v-3.49c0-1.18-0.97-2.15-2.15-2.15h-7.79c-1.18,0-2.15,0.97-2.15,2.15v3.49c0,1.18,0.97,2.15,2.15,2.15 h1.33L39.36,84h10.16L47.06,71.01L47.06,71.01z M104.48,5.69L86.87,3.36c-1.15-0.15-2.24-0.09-3.24,0.18 c-1,0.27-1.96,0.75-2.87,1.44c-0.9,0.69-1.61,1.49-2.14,2.39c-0.52,0.9-0.86,1.93-1.02,3.08l-2.28,17.19 c-0.15,1.15-0.09,2.24,0.18,3.24c0.27,1,0.75,1.96,1.44,2.87c0.71,0.9,1.51,1.64,2.41,2.14c0.9,0.52,1.91,0.86,3.06,1.01l7.56,1 c0.88,0.12,1.52,0.94,1.4,1.83c-0.03,0.2-0.09,0.37-0.16,0.54c-0.43,1.02-0.88,2.04-1.37,3.01c-0.52,1.03-1.05,2-1.63,2.93 c-0.29,0.48-0.62,0.93-0.97,1.4c1.64-0.48,3.2-1.08,4.67-1.79c1.54-0.74,3-1.6,4.36-2.57c1.39-0.98,2.66-2.1,3.85-3.31 c0.37-0.38,0.88-0.53,1.37-0.47l6.5,0.86c1.15,0.15,2.21,0.09,3.22-0.18c1-0.27,1.96-0.75,2.89-1.44c0.9-0.69,1.61-1.49,2.14-2.39 c0.52-0.9,0.86-1.93,1.02-3.08l2.28-17.19c0.15-1.15,0.09-2.24-0.18-3.24c-0.27-1-0.75-1.97-1.44-2.87 c-0.69-0.9-1.49-1.61-2.39-2.14c-0.9-0.52-1.93-0.86-3.08-1.02l-7.98-1.06L104.48,5.69L104.48,5.69L104.48,5.69z M89.06,22.96 c-0.34-0.42-0.47-0.94-0.42-1.44c0.06-0.5,0.3-0.98,0.72-1.31c0.42-0.34,0.94-0.47,1.44-0.42c0.5,0.06,0.98,0.3,1.31,0.72 l2.91,3.66l7.77-7.57c0-0.01,0.06-0.05,0.07-0.06c0.89-0.59,2.09-0.35,2.7,0.53c0.6,0.88,0.39,2.09-0.49,2.71l-9.27,8.66 c0,0-0.05,0.04-0.06,0.04c-0.42,0.28-0.91,0.38-1.38,0.31c-0.47-0.07-0.92-0.31-1.24-0.71L89.06,22.96L89.06,22.96L89.06,22.96z M95.28,1.19l17.61,2.33c1.55,0.21,2.97,0.69,4.26,1.42c1.27,0.73,2.4,1.73,3.36,2.99c0.96,1.25,1.63,2.6,2.01,4.02 c0.37,1.42,0.47,2.92,0.26,4.49l-2.28,17.19c-0.21,1.57-0.69,2.99-1.42,4.26c-0.73,1.27-1.73,2.4-2.99,3.36 c-1.25,0.96-2.6,1.61-4.02,2.01c-1.42,0.37-2.92,0.47-4.49,0.26l-5.7-0.76c-1.16,1.13-2.4,2.18-3.69,3.11 c-1.54,1.1-3.15,2.06-4.85,2.86c-1.71,0.83-3.51,1.51-5.4,2.05c-1.87,0.54-3.85,0.93-5.91,1.19c-0.59,0.08-1.19-0.18-1.55-0.7 c-0.51-0.74-0.31-1.75,0.43-2.26c1.04-0.69,1.94-1.43,2.69-2.18c0.73-0.74,1.35-1.51,1.84-2.32l0-0.02 c0.54-0.87,1.04-1.77,1.5-2.68c0.15-0.32,0.31-0.66,0.47-0.99l-5.44-0.72c-1.55-0.2-2.97-0.69-4.26-1.42 c-1.27-0.73-2.4-1.73-3.36-2.99c-0.96-1.25-1.63-2.6-2.01-4.02c-0.37-1.44-0.46-2.94-0.26-4.48L74.37,10 c0.21-1.55,0.69-2.97,1.42-4.26c0.73-1.27,1.73-2.4,2.99-3.36c1.25-0.96,2.6-1.63,4.02-2.01c1.42-0.37,2.92-0.47,4.48-0.26 l7.97,1.06L95.28,1.19L95.28,1.19L95.28,1.19z M33.43,52.06c0.24-2.01-5.72-9.69-6.81-13.37c-2.33-3.71-3.16-9.61-0.62-13.53 c1.01-1.56,0.58-4.33,0.58-6.48c0-21.35,37.41-21.36,37.41,0c0,2.7-0.62,4.75,0.84,6.88c2.45,3.55,1.19,9.84-0.88,13.14 c-1.32,3.87-7.58,11.18-7.15,13.37C57.19,63.02,33.36,62.66,33.43,52.06L33.43,52.06z M62.46,58.45c4.6,2.94,11.12,5.36,16.33,7.1 C89.03,68.96,89,69.43,88.93,84l-36.18,0L62.46,58.45L62.46,58.45z"/>
+	      </svg>
+	      Suggestions
+	     </a>
+	     <a href="#">
+	       <svg viewBox="0 0 24 24" fill="currentColor">
+			<path fill="currentColor" d="M17 2h-10c-1.7 0-3 1.3-3 3v16c0 0.4 0.2 0.7 0.5 0.9s0.7 0.1 1-0.1l6.4-4.6 6.4 4.6c0.2 0.1 0.4 0.2 0.6 0.2s0.3 0 0.5-0.1c0.3-0.2 0.5-0.5 0.5-0.9v-16c0.1-1.7-1.2-3-2.9-3zM18 19.1l-5.4-3.9c-0.2-0.1-0.4-0.2-0.6-0.2s-0.4 0.1-0.6 0.2l-5.4 3.9v-14.1c0-0.6 0.4-1 1-1h10c0.6 0 1 0.4 1 1v14.1z"></path>
+            </svg>
+	      </svg>
+	      News
+	     </a>
+	     <a href="#">
+	      <svg viewBox="0 0 511.441 511.441" fill="currentColor">
+	       <path d="M255.721 347.484L90.22 266.751v106.57l165.51 73.503 165.509-73.503V266.742z" />
+	       <path d="M511.441 189.361L255.721 64.617 0 189.361l255.721 124.744 195.522-95.378v111.032h30V204.092z" />
+	      </svg>
+	      Tutorials
+	     </a>
+	     <a href="#">
+	       <svg viewBox="0 0 24 24" fill="currentColor">
+			<path fill="currentColor" fill-rule="evenodd" d="M19.9742471,13.2108333 C20.0431292,12.8107575 20.0791907,12.4058266 20.0820789,12 C20.0791907,11.5941734 20.0431292,11.1892425 19.9742471,10.7891667 L21.7433625,9.09833333 C22.02091,8.83266422 22.080283,8.41433184 21.887419,8.08333333 L20.6237652,5.91666667 C20.4283329,5.58705201 20.0327882,5.42924285 19.660861,5.5325 L17.3020405,6.19916667 C16.6633949,5.68460569 15.9443967,5.27621873 15.1732051,4.99 L14.5809726,2.63166667 C14.4874026,2.26055986 14.150463,2 13.7638098,2 L11.2365022,2 C10.849849,2 10.5129094,2.26055986 10.4193394,2.63166667 L9.8237372,4.99 C9.05373002,5.27654335 8.33589252,5.68491746 7.69827147,6.19916667 L5.339451,5.5325 C4.96754097,5.42955053 4.57218253,5.58728536 4.37654678,5.91666667 L3.11289296,8.08333333 C2.91958388,8.41452832 2.97898001,8.8333678 3.2569495,9.09916667 L5.02606485,10.79 C4.95722802,11.1898013 4.92116671,11.5944518 4.91823306,12 C4.92112133,12.4058266 4.9571828,12.8107575 5.02606485,13.2108333 L3.2569495,14.9016667 C2.97940196,15.1673358 2.92002904,15.5856682 3.11289296,15.9166667 L4.37654678,18.0833333 C4.52718003,18.341419 4.80567206,18.5002904 5.10693869,18.5 C5.1852399,18.4996535 5.26314655,18.4890046 5.33860856,18.4683333 L7.69742903,17.8016667 C8.33607468,18.3162276 9.05507288,18.7246146 9.82626451,19.0108333 L10.4218667,21.3691667 C10.5155334,21.7390403 10.8510367,21.9988456 11.2365022,22 L13.7638098,22 C14.150463,22 14.4874026,21.7394401 14.5809726,21.3683333 L15.1765748,19.01 C15.946582,18.7234567 16.6644195,18.3150825 17.3020405,17.8008333 L19.660861,18.4675 C19.736323,18.4881712 19.8142297,18.4988202 19.8925309,18.4991667 C20.1937975,18.499457 20.4722895,18.3405857 20.6229228,18.0825 L21.8865766,15.9158333 C22.0798857,15.5846383 22.0204896,15.1657989 21.7425201,14.9 L19.9742471,13.2108333 Z M12.500156,15.3333333 C10.639098,15.3333333 9.13041247,13.8409492 9.13041247,12 C9.13041247,10.1590508 10.639098,8.66666667 12.500156,8.66666667 C14.361214,8.66666667 15.8698995,10.1590508 15.8698995,12 C15.8698995,12.884055 15.514874,13.7319013 14.8829245,14.3570226 C14.250975,14.9821439 13.3938675,15.3333333 12.500156,15.3333333 Z"/>
+            </svg>
+	      </svg>
+	      Settings
+	     </a>
+	    </div>
+	   </div>
+	  </div>
+	  <div class="main-container">
+	   <div class="main-header">
+	    <a class="menu-link-main" href="#"><h4>Portfolio</h4></a>
+	   </div>
+	   <div class="content-wrapper">
+		   <!--
+			<form method="post" class="form-1" autocomplete="off">
+				<h2>Know more about Investments and Gov. schemes</h2>
+				<button class="suggestion-btn" type="submit">Get Started</button>
+			</form>
+			-->
+			<form method="post" class="form-2" autocomplete="off">
+				{% csrf_token %}
+				<div class="form-grid-top">
+					<div class="form-grid-left">
+						<div class="label-field">
+							<label for="fname">Income:</label>
+							<input type="text" id="fname" name="suggestincome" placeholder="Your annual income..." style="margin-left: -10px;">
+						</div>
+						<div class="label-field">
+							<label for="lname">Age:</label>
+							<input type="text" id="lname" name="suggestage" placeholder="Your age...">
+						</div>
+					</div>
+					<div class="form-grid-right">
+						<div class="label-field">
+							<label for="country">States:</label>
+							<select id="mounth" name="suggeststates">
+								<option value="hide">-- States --</option>
+								<option value="chhattisgarh">Chhattisgarh</option>
+								<option value="gujarat">Gujarat</option>
+								<option value="haryana">Haryana</option>
+								<option value="himachalPradesh">Himachal Pradesh</option>
+								<option value="karnataka">Karnataka</option>
+								<option value="kerala">Kerala</option>
+								<option value="madhyaPradesh">Madhya Pradesh</option>
+								<option value="maharashtra">Maharashtra</option>
+								<option value="odisha">Odisha</option>
+								<option value="punjab">Punjab</option>
+								<option value="rajasthan">Rajasthan</option>
+								<option value="tamilNadu">Tamil Nadu</option>
+								<option value="uttarakhand">Uttarakhand</option>
+								<option value="uttarPradesh">Uttar Pradesh</option>
+								<option value="westBengal">West Bengal</option>
+							</select>
+						</div>
+						<div class="label-field">
+							<label for="kids">Kids:</label>
+							<select id="kids" name="suggestkids">
+								<option value="hide">-- Kids --</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-grid-bottom">
+					<input type="submit" value="Submit" name="suggestionsubmit"> 
+				</div>
+			</form>
+			<!--
+			<div class="main-container1">
+				<div class="div-top">
+					<div class="div-top-top">
+						<div class="coin"></div>
+						<div class="coin"></div>
+						<div class="coin"></div>
+						<div class="coin"></div>
+					</div>
+					<div class="div-top-bottom">
+					</div>
+				</div>
+				<div class="div-bottom"></div>
+			</div>
+			-->
+			
+		</div>
+	       </div>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+	  </div>
+	 </div>
+	 <div class="overlay-app">
+	 </div>
+	</div>
+	<script type="text/javascript">
+		$('.list').on('change', function() {
+			$('.list').not(this).prop('checked', false);
+		});
+	</script>
+	
+	<script src="{% static 'mysite/script.js' %}"></script>
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+</body>
+</html>

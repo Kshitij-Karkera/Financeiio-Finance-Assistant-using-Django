@@ -1,0 +1,76 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Investing{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Investing
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/Investing.gif' %}">
+					</div>
+					<div class="top-right-container">
+                        <div class="blog-title">Investing</div>
+						<div class="blog-description">
+							Investing consists of buying or selling an asset and holding it for months or years. Investors hold their securities and gain profit from selling them when the market price changes to their advantage. Often, they keep their assets for decades. Long-term investing is typically done in the stock market. Futures have expiration dates, so they aren't ideal for long-term trades. There are thousands of stocks and exchange-traded funds (ETFs) to choose from. If you're interested in currency trading but don't have the capital for day trading, you can use currency ETFs to trade futures and currencies over the long term. Starting capital varies when choosing stocks or stock funds. Mutual funds are lower-cost bundles of pieces of different stocks that you can buy. However, buying an individual stock from a corporation or broker can be very costly.One of the least expensive ways to invest in the stock market is through mutual funds or exchange-traded funds. Fees can still add up with stocks and funds. For instance, if you had the same $7 fee for $100 of stock, it would still be 7% of your capital. Your $100 stock would still need a 14% return to cover the transaction fees, but you have much more time to earn the amount than with a day trade.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="blog-description">
+						Some ETFs might cost less to maintain than mutual funds, and others more. For example, the iShares Core S&P 500 ETF (IVV) has a .03% (of your total investment) management fee and no service or other expense fees.5 While the fees are low, the ETF had a turnover rate of 4%, which triggers taxes on capital gains. In contrast, the Fidelity 500 Index Fund has annual operating expenses of .015% of your total investment. However, there is a 7% turnover rate within the fund, which might increase your taxes as the managers sell stocks and create capital gains.6 Try to save up at least $1,000 of investment capital before making a stock or ETF purchase (many ETFs can be bought commission-free with certain brokers). This way, commissions don't take such a huge percentage of your capital for each purchase or sale.
+					</div>
+					<div class="blog-description">
+						 In contrast, the Fidelity 500 Index Fund has annual operating expenses of .015% of your total investment. However, there is a 7% turnover rate within the fund, which might increase your taxes as the managers sell stocks and create capital gains
+					</div>
+					<div class="blog-description">
+						Try to save up at least $1,000 of investment capital before making a stock or ETF purchase (many ETFs can be bought commission-free with certain brokers). This way, commissions don't take such a huge percentage of your capital for each purchase or sale.
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+		</script>
+{% endblock scripts%}
+
+</body>
+</html>

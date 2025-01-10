@@ -1,0 +1,161 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Trading{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Trading
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/Trading.gif' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Trading</div>
+						<div class="blog-description">
+							Day trading usually refers to the practice of purchasing and selling a security within a single trading day. While it can occur in any marketplace, it is most common in the foreign exchange (forex) and stock markets. Day traders are typically well-educated and well-funded. They use high amounts of leverage and short-term trading strategies to capitalize on small price movements that occur in highly liquid stocks or currencies. Day traders are attuned to events that cause short-term market moves. Trading based on the news is a popular technique. Scheduled announcements such as economic statistics, corporate earnings, or interest rates are subject to market expectations and market psychology. Markets react when those expectations are not met or are exceeded–usually with sudden, significant moves–which can greatly benefit day traders.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Day Trading Charts & Pattern:</div>
+						<div class="blog-sub-description">To help determine the opportune moment to buy a stock (or whatever asset you're trading), many traders utilize:</div>
+						<div class="blog-sub-description">•	Candlestick patterns, including engulfing candles and dojis</div>
+						<div class="blog-sub-description">•	Technical analysis, including trend lines and triangles</div>
+						<div class="blog-sub-description">•	Volume—increasing or decreasing</div>
+					    <div class="blog-sub-description">There are many candlestick setups a day trader can look for to find an entry point. If used properly, the doji reversal  is one of the most reliable ones.</div>
+						<div class="blog-sub-description">The doji is likely to produce an actual turnaround and can take a position if the conditions are favorable.</div>
+						<div class="blog-sub-description">Traditional analysis of chart patterns also provides profit targets for exits. For example, the height of a triangle at the widest part is added to the breakout point of the triangle (for an upside breakout), providing a price at which to take profits.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Basic Day Trading Stratergies:</div>
+						<div class="blog-sub-description">Once you've mastered some of the techniques, developed your own personal trading styles, and determined what your end goals are, you can use a series of strategies to help you in your quest for profits.</div>
+						<div class="blog-sub-description">Here are some popular techniques you can use. Although some of these have been mentioned above, they are worth going into again:</div>
+						<div class="blog-sub-description">•	Following the trend: Anyone who follows the trend will buy when prices are rising or short sell when they drop. This is done on the assumption that prices that have been rising or falling steadily will continue to do so.</div>
+						<div class="blog-sub-description">•	Contrarian investing: This strategy assumes the rise in prices will reverse and drop. The contrarian buys during the fall or short-sells during the rise, with the express expectation that the trend will change</div>
+						<div class="blog-sub-description">•	Scalping: This is a style where a speculator exploits small price gaps created by the bid-ask spread. This technique normally involves entering and exiting a position quickly—within minutes or even seconds</div>
+						<div class="blog-sub-description">•	Trading the news: Investors using this strategy will buy when good news is announced or short sell when there's bad news. This can lead to greater volatility, which can lead to higher profits or losses.</div>
+						<div class="blog-sub-description">Day trading is difficult to master. It requires time, skill, and discipline. Many of those who try it fail, but the techniques and guidelines described above can help you create a profitable strategy. With enough practice and consistent performance evaluation, you can greatly improve your chances of beating the odds.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">How to Limit Losses When Day Trading ?</div>
+						<div class="blog-sub-description">A stop-loss order is designed to limit losses on a position in a security. For long positions, a stop loss can be placed below a recent low, or for short positions, above a recent high. It can also be based on volatility.</div>
+						<div class="blog-sub-description">For example, if a stock price is moving about $0.05 a minute, then you may place a stop loss $0.15 away from your entry to give the price some space to fluctuate before it moves in your anticipated direction</div>
+						<div class="blog-sub-description">Define exactly how you'll control the risk of the trades. In the case of a triangle pattern, for instance, a stop loss can be placed $0.02 below a recent swing low if buying a breakout, or $0.02 below the pattern. (The $0.02 is arbitrary; the point is simply to be specific.)</div>
+						<div class="blog-sub-description">One strategy is to set two stop losses:</div>
+						<div class="blog-sub-description">1. A physical stop-loss order placed at a certain price level that suits your risk tolerance. Essentially, this is the most money you can stand to lose.</div>
+						<div class="blog-sub-description">2. A mental stop-loss set at the point where your entry criteria are violated. This means if the trade makes an unexpected turn, you'll immediately exit your position.</div>
+						<div class="blog-sub-description">However you decide to exit your trades, the exit criteria must be specific enough to be testable and repeatable. Also, it's important to set a maximum loss per day you can afford to withstand—both financially and mentally. Whenever you hit this point, take the rest of the day off. Stick to your plan and your perimeters. After all, tomorrow is another (trading) day.</div>
+						<div class="blog-sub-description">Once you've defined how you enter trades and where you'll place a stop loss, you can assess whether the potential strategy fits within your risk limit. If the strategy exposes you too much risk, you need to alter the strategy in some way to reduce the risk.</div>
+						<div class="blog-sub-description">If the strategy is within your risk limit, then testing begins. Manually go through historical charts to find your entries, noting whether your stop loss or target would have been hit. Paper trade in this way for at least 50 to 100 trades, noting whether the strategy was profitable and if it meets your expectations.</div>
+						<div class="blog-sub-description">If it does, proceed to trade the strategy in a demo account in real-time. If it's profitable over the course of two months or more in a simulated environment, proceed with day trading the strategy with real capital. If the strategy isn't profitable, start over.</div>
+						<div class="blog-sub-description">Finally, keep in mind that if trading on margin—which means you're borrowing your investment funds from a brokerage firm (and bear in mind that margin requirements for day trading are high)—you're far more vulnerable to sharp price movements. Margin helps to amplify the trading results not just of profits, but of losses as well if a trade goes against you. Therefore, using stop losses is crucial when day trading on margin.</div>
+						<div class="blog-sub-description"></div>
+
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">What Makes Day Trading Difficult ?</div>
+						<div class="blog-sub-description">Day trading takes a lot of practice and there are several factors that can make the process challenging.</div>
+						<div class="blog-sub-description">First, know that you're going up against professionals whose careers revolve around trading. These people have access to the best technology and connections in the industry, so even if they fail, they're set up to succeed in the end. If you jump on the bandwagon, it means more profits for them</div>
+						<div class="blog-sub-description">Remember that you'll have to pay taxes on any short-term gains—or any investments you hold for one year or less—at the marginal rate. </div>
+						<div class="blog-sub-description">As an individual investor, you may be prone to emotional and psychological biases. Professional traders are usually able to cut these out of their trading strategies, but when it's your own capital involved, it tends to be a different story.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

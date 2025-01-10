@@ -1,0 +1,148 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block links%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/blog.css' %}">
+	{% endblock links %}
+	<title>{% block title %}Should You Invest In Cryptography?{% endblock title %}</title>
+</head>
+<body>
+{% block currentsecname %}
+Should You Invest In Cryptography?
+{% endblock currentsecname %}
+
+		{% block contentwrapper %}
+			<div class="main-container3">
+				<div class="top-container">
+					<div class="blog-image-container">
+						<img src="{% static 'mysite/InvestCryp.jpg' %}">
+					</div>
+					<div class="top-right-container">
+						<div class="blog-title">Is Cryptocurrency Safe?</div>
+						<div class="blog-description">
+							Several factors make cryptocurrency not entirely safe, at least currently, while other signs are emerging that cryptocurrency is here to stay.
+						</div>
+					</div>
+				</div>
+				<div class="bottom-container">
+					<div class="topic-container">
+						<div class="blog-sub-title">Cryptocurrency risks</div>
+						<div class="blog-sub-description">Shares are a way to own a part of the company’s value. In proportion to the capital you invest, you can get ownership rights to a certain percentage in the company.  Say you own 2% of the shares being traded in the market, you can say you have 2% ownership in the company.</div>
+						<div class="blog-sub-description">Hence, shares are units of ownership in the company and its financial assets. Shares are also known as stocks, equity, scrips etc. After purchasing them you will be known as a stockholder or a shareholder of the company.</div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Cryptocurrency adoption:</div>
+						<div class="blog-sub-description">Despite the inherent risks, cryptocurrencies and the blockchain industry are consistently growing stronger. Much-needed financial infrastructure is being built, and investors are increasingly able to access institutional-grade custody services. Professional and individual investors are gradually receiving the tools they need to manage and safeguard their crypto assets.</div>
+					    <div class="blog-sub-description">Crypto futures markets are being established, and many companies are gaining direct exposure to the cryptocurrency sector. Financial giants such as Square (NYSE:SQ) and PayPal (NASDAQ:PYPL) are making it easier to buy and sell cryptocurrency on their popular platforms, while other companies, including Square, have collectively invested hundreds of millions of dollars in Bitcoin and other digital assets. Tesla (NASDAQ:TSLA) purchased $1.5 billion worth of Bitcoin in early 2021</div>
+                        <div class="blog-sub-description">While other factors still impact the riskiness of cryptocurrency, the increasing pace of adoption is a sign of an industry maturing. Individual investors and companies alike are seeking to gain direct exposure to cryptocurrency, considering it safe enough for investing large sums of money.</div>
+                    </div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Is crypto a good long-term investment ?</div>
+						<div class="blog-sub-description">Many cryptocurrencies like Bitcoin and Ethereum are launched with lofty objectives, which may be achieved over long time horizons. While the success of any cryptocurrency project is not assured, if a cryptocurrency project achieves it goals, then early investors could be richly rewarded over the long term.</div>
+					    <div class="blog-sub-description">For any cryptocurrency project, however, achieving widespread adoption is necessary to be considered a long-term success.</div>
+						<div class="blog-sub-title" style="margin-top:10px;">Bitcoin as a long-term investment</div>
+						<div class="blog-sub-description" >Bitcoin, as the most widely known cryptocurrency, benefits from the network effect -- more people want to own Bitcoin because Bitcoin is owned by the most people. Bitcoin is currently viewed by many investors as "digital gold," but it could also be used as a digital form of cash.</div>
+						<div class="blog-sub-description">Investors in Bitcoin believe the cryptocurrency will gain value over the long term because the supply is fixed, unlike the supplies of fiat currencies such as the U.S. dollar or the Japanese yen. The supply of Bitcoin is capped at just under 21 million coins, while central-bank-controlled currencies can be printed at the will of politicians. Many investors expect Bitcoin to gain value as fiat currencies depreciate.</div>
+						<div class="blog-sub-description">Those who are bullish about Bitcoin being extensively used as digital cash believe that, over the long term, Bitcoin has the potential to become the first truly global currency. </div>
+						<div class="blog-sub-title" style="margin-top:10px;">Ethereum as a long-term investment</div>
+						<div class="blog-sub-description">Ether is the native coin of the Ethereum platform and can be purchased by investors wishing to gain portfolio exposure to Ethereum. While Bitcoin can be viewed as digital gold, Ethereum is building a global computing platform that supports many other cryptocurrencies and a massive ecosystem of decentralized applications ("dapps").</div>
+						<div class="blog-sub-description">The large number of cryptocurrencies built on the Ethereum platform, combined with the open-source nature of dapps, creates opportunities for Ethereum to also benefit from the network effect and to create sustainable, long-term value. The Ethereum platform enables the use of "smart contracts," which execute automatically based on terms written directly into the contracts' code.</div>
+						<div class="blog-sub-description">The Ethereum network collects Ether from users in exchange for executing smart contracts. Smart contract technology has significant potential to disrupt massive industries, such as real estate and banking, and also to create entirely new markets.</div>
+						<div class="blog-sub-description">As the Ethereum platform becomes increasingly used worldwide, the Ether token increases in utility and value. Investors bullish on the long-term potential of the Ethereum platform can profit directly by owning Ether.  </div>
+					</div>
+					<div class="topic-container">
+						<div class="blog-sub-title">Should you invest in cryptocurrency ?</div>
+						<div class="blog-sub-description">Owning some cryptocurrency can increase your portfolio's diversification since cryptocurrencies such as Bitcoin have historically shown almost no price correlation with the U.S. stock market. If you believe that cryptocurrency usage will become increasingly widespread over time, then it probably makes sense for you to buy some crypto directly as part of a diversified portfolio. For every cryptocurrency that you invest in, be sure to have an investment thesis as to why that currency will stand the test of time.</div>
+						<div class="blog-sub-description">If buying cryptocurrency seems too risky, you can consider other ways to potentially profit from the rise of cryptocurrencies. You can buy the stocks of companies such as Coinbase, Square, and PayPal or invest in an exchange like CME Group (NASDAQ:CME), which facilitates crypto futures trading. While investments in these companies may be profitable, they do not have the same upside potential as investing in cryptocurrency directly.</div>
+					</div>
+				</div>
+			</div>
+		{% endblock contentwrapper %}
+
+	{% block scripts%}
+	<script type="text/javascript">
+		$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+	</script>
+{% endblock scripts%}
+
+</body>
+</html>

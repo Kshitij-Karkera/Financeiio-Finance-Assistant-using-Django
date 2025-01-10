@@ -1,0 +1,490 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'mysite/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'mysite/aos.css' %}" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+  <!-- Load Three.js from local static files -->
+  <script>
+    var modelPath = "{% static 'mysite/HomeHand2.gltf' %}";
+  </script>
+  <script src="{% static 'mysite/bundle.9d358309e0eec1244561.js' %}" type="module"></script>
+
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.2/pixi.min.js"></script>
+  <script src="https://use.typekit.net/ask0tpl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/utils/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <script src="https://codepen.io/petebarr/pen/2fc0573674b0f849badd58a15371534e"></script>
+  <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
+  <title>Financiio</title>
+</head>
+
+<body>
+  <section class="landingpg">
+    <canvas class="webgl"></canvas>
+    <h1 class="project-name">FINANCIIO</h1>
+    <h1 class="project-slogan">Your Personal Money Manager.</h1>
+    <p class="project-para">Start growing your money by planning your savings and learn about </p>
+    <p class="project-para-n">investment</p>
+    <div class="wrap">
+      <div class="box-btn">
+        <form method="post" action="{% url 'sign_up_in' %}">
+          {% csrf_token %}
+          <button class="cta" style="margin-top: 20px;">
+            <a>Get Started</a>
+            <span class="shape">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+    <form method="post" action="{% url 'sign_up_in' %}">
+      {% csrf_token %}
+      <button class="cta" style="position: absolute; top: 4%; left: 88%;">
+        <a>Sign In/Sign Up</a>
+      </button>
+    </form>
+  </section>
+  <section class="invststg">
+    <div class="main-container">
+      <div>
+        <h2 class="title-1">Investment<br>Suggestions</h2>
+        <p class="para">Investment Suggestions can recommend or suggest<br> an investment strategy, explicitly or
+          implicitly,<br> concerning one or several financial instruments or the <br>issuers, including any opinion as
+          to the present or <br>future value or price of such instruments.
+        </p>
+      </div>
+      <div class="container-2">
+        <div class="card">
+          <div class="circle-1">
+            <h2>Ethereum</h2>
+            <img src="{% static 'mysite/ethereum-logo.png' %}" alt="" style="width: 30%">
+          </div>
+          <div class="content">
+            <h2>Price</h2>
+            <p>
+              ₹186,787.23
+            </p>
+            <h2 style="top: 45%; left: 10%;">Market cap</h2>
+            <p style="top: 60%; left: 35%;">
+              ₹21.7T
+            </p>
+            <a href="https://www.coinbase.com/price/ethereum" target="_blank">Read more</a>
+          </div>
+        </div>
+        <div class="card" style="position: absolute; top: 30%; left: 120%; animation-delay: 1s;">
+          <div class="circle-1">
+            <h2>Google</h2>
+            <img src="{% static 'mysite/google-logo.png' %}" alt="" style="width: 27%">
+          </div>
+          <div class="content">
+            <h2>Price</h2>
+            <p>
+              ₹175,690.20
+            </p>
+            <h2 style="top: 45%; left: 10%;">Market cap</h2>
+            <p style="top: 60%; left: 27%;">
+              ₹190.80T
+            </p>
+            <a href="https://groww.in/us-stocks/googl" target="_blank">Read more</a>
+          </div>
+        </div>
+        <div class="card" style="position: absolute; top: 0%; left: 220%;">
+          <div class="circle-1">
+            <h2>Apple</h2>
+            <img src="{% static 'mysite/apple-logo.png' %}" alt="">
+          </div>
+          <div class="content">
+            <h2>Price</h2>
+            <p style="left: 26%;">
+              ₹9,267.79
+            </p>
+            <h2 style="top: 45%; left: 10%;">Market cap</h2>
+            <p style="top: 60%; left: 27%;">
+              ₹154.84T
+            </p>
+            <a href="https://groww.in/us-stocks/aapl" target="_blank">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="savingspg">
+    <div class="containercyc" data-aos="fade-up">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" class="results__dial">
+        <g class="results__dial-circles">
+          <path class="results__dial-outer"
+            d="M260,64c110.46,0,200,89.54,200,200S370.46,464,260,464,60,374.46,60,264,149.54,64,260,64" fill="none"
+            stroke="#64d3de" stroke-miterlimit="10" opacity="0.6" />
+          <path class="results__dial-track" d="M260,86A178,178,0,1,1,82,264,178,178,0,0,1,260,86" fill="none"
+            stroke="#50afb8" stroke-miterlimit="10" stroke-width="8" />
+          <path class="results__dial-track-perc" d="M260,86A178,178,0,1,1,82,264,178,178,0,0,1,260,86" fill="none"
+            stroke="#fff" stroke-miterlimit="10" stroke-width="8" />
+        </g>
+        <g class="results__dial-markers" fill="#64d3de">
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+          <rect class="results__dial-marker" x="260" y="55" width="1" height="9" />
+        </g>
+        <g class="results__dial-percent-text" fill="#64d3de" font-size="18">
+          <text x="255" y="43.99">0%</text>
+          <text x="388" y="86.99">10%</text>
+          <text x="471" y="199.99">20%</text>
+          <text x="470" y="340.99">30%</text>
+          <text x="381" y="454.99">40%</text>
+          <text x="250" y="495.99">50%</text>
+        </g>
+        <g class="">
+          <text class="results__dial-perc-text results__text" x="272" y="203.98" fill="#fff">
+            <tspan class="results__dial-perc" text-anchor="start">0</tspan>
+            <tspan baseline-shift="super">%</tspan>
+          </text>
+          <text class="results__dial-effect results__text" x="154.43" y="236.67" font-size="16" fill="#64d3de">INCREASE
+            IN HAND CASH
+            <tspan x="175" dy="24">EFFECTIVENESS SAVES:</tspan>
+          </text>
+          <text class="results__dial-results results__text" text-anchor="middle" x="250" y="318" fill="#64d3de">
+            <tspan baseline-shift="super">₹</tspan>
+            <tspan fill="#fff" class="results__dial-saving">0</tspan>
+          </text>
+        </g>
+        <g class="results__dial-drag" fill="#fff">
+          <g class="results__dial-drag-inner">
+            <circle class="results__dial-drag-hit" cx="260" cy="35" r="30" fill="white" opacity="0" />
+            <circle class="results__dial-drag-pad" cx="260" cy="35" r="20" />
+            <g class="results__dial-drag-arrows" fill="#092a30">
+              <polygon points="266.73 38.66 266 37.96 268.55 35.48 266 33.01 266.73 32.3 270 35.48 266.73 38.66" />
+              <polygon points="253.27 38.66 254 37.96 251.45 35.48 254 33.01 253.27 32.3 250 35.48 253.27 38.66" />
+              <rect x="251" y="35" width="18" height="1" />
+            </g>
+          </g>
+          <rect class="results__dial-drag-line" x="260" y="55" width="1" height="35" />
+        </g>
+      </svg>
+    </div>
+    <div>
+      <h2 class="title-1" style="left: 60%;">Savings Portfolio/Goal</h2>
+      <p class="para" style="left: 60%;">Savings Portfolio will help you manage and view a collection<br> of financial
+        investments made in a particular month or a year.
+      </p>
+      <p class="para" style="left: 60%; top: 60%;">Savings Goal can help you save money from now and when<br> you want
+        to achieve your financial goal.
+      </p>
+    </div>
+  </section>
+  <section class="dailynews">
+    <div>
+      <h2 class="title-1">Daily News</h2>
+      <p class="para">Daily News will keep you up to date regarding finance,<br> crypto currency, stocks other related
+        news.
+        <br>
+        <br>
+        You can filter out news section to get daily news for a <br>particular topic.
+      </p>
+    </div>
+    <div class="cardslinedaly">
+      <div id="newsplacer">
+        <div class="row">
+          <div class="example-2 news-card">
+            <div class="wrapper">
+              <div class="header">
+                <div class="date">
+                  <span class="day">17</span>
+                  <span class="month">Jun</span>
+                  <span class="year">2021</span>
+                </div>
+                <ul class="menu-content">
+                  <li>
+                    <a href="https://www.coindesk.com/el-salvador-bitcoin-legal-tender-koning" target="_blank"
+                      class="fa fa-bookmark-o"></a>
+                  </li>
+                  <li><a href="https://www.coindesk.com/el-salvador-bitcoin-legal-tender-koning" target="_blank"
+                      class="fa fa-heart-o"><span>152</span></a></li>
+                  <li><a href="https://www.coindesk.com/el-salvador-bitcoin-legal-tender-koning" target="_blank"
+                      class="fa fa-comment-o"><span>61</span></a></li>
+                </ul>
+              </div>
+              <div class="data">
+                <div class="content">
+                  <span class="author">JP Koning</span>
+                  <h1 class="title"><a href="https://www.coindesk.com/el-salvador-bitcoin-legal-tender-koning"
+                      target="_blank">El Salvador Adopts Bitcoin: Hype or History in the Making?</a></h1>
+                  <p class="text">What does it mean for a country like El Salvador to adopt bitcoin as "legal tender"?
+                    It depends on whom you ask.</p>
+                  <a href="https://www.coindesk.com/el-salvador-bitcoin-legal-tender-koning" target="_blank"
+                    class="button">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="newsplacer1">
+        <div class="row1">
+          <div class="example-3 news-card">
+            <div class="wrapper1">
+              <div class="header1">
+                <div class="date1">
+                  <span class="day1">17</span>
+                  <span class="month1">Jun</span>
+                  <span class="year1">2021</span>
+                </div>
+                <ul class="menu-content1">
+                  <li>
+                    <a href="https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-12-things-that-will-decide-stock-action-on-wednesday/articleshow/83342467.cms"
+                      target="_blank" class="fa fa-bookmark-o"></a>
+                  </li>
+                  <li><a
+                      href="https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-12-things-that-will-decide-stock-action-on-wednesday/articleshow/83342467.cms"
+                      target="_blank" class="fa fa-heart-o"><span>32</span></a></li>
+                  <li><a
+                      href="https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-12-things-that-will-decide-stock-action-on-wednesday/articleshow/83342467.cms"
+                      target="_blank" class="fa fa-comment-o"><span>17</span></a></li>
+                </ul>
+              </div>
+              <div class="data1">
+                <div class="content1">
+                  <span class="author1">Sabari Saran</span>
+                  <h1 class="title1"><a
+                      href="https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-12-things-that-will-decide-stock-action-on-wednesday/articleshow/83342467.cms"
+                      target="_blank">12 things that will decide stock action on Wednesday</a></h1>
+                  <p class="text1">Nifty traded in a consolidated range of about 100 points and formed a small bearish
+                    candle on the daily chart.</p>
+                  <a href="https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-12-things-that-will-decide-stock-action-on-wednesday/articleshow/83342467.cms"
+                    target="_blank" class="button1">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional JavaScript -->
+  <script type="text/javascript">
+    var tCost = 6501373;
+    var hhCost = tCost * 0.5;
+    var decreaseScale = 0.006;
+    var savings;
+    var maxRotation = 179.6;
+    var rotationSnap = 360 / 100;
+    var initEasing = Power4.easeInOut;
+    var $circOuter = $(".results__dial-outer");
+    var $circTrack = $(".results__dial-track");
+    var $trackPerc = $(".results__dial-track-perc");
+    var $dialMarkers = $(".results__dial-marker");
+    var $dialMarkerNums = $(".results__dial-percent-text text");
+    var $drag = $(".results__dial-drag");
+    var $dragPad = $(".results__dial-drag-pad");
+    var $dragPadHit = $(".results__dial-drag-hit");
+    var $dragLine = $(".results__dial-drag-line");
+    var $dragInner = $(".results__dial-drag-inner");
+    var $resultsText = $(".results__text");
+    var $perc = $(".results__dial-perc");
+    var $saving = $(".results__dial-saving");
+    var dialTL = new TimelineMax();
+
+    TweenMax.set(".results__dial", {
+      visibility: "visible"
+    });
+
+    TweenMax.set([$trackPerc, $circOuter, $circTrack], {
+      transformOrigin: "50% 50%",
+      drawSVG: "0% 0%"
+    });
+
+    TweenMax.set($drag, {
+      transformOrigin: "50% 259",
+      rotation: 0
+    });
+
+    TweenMax.set($dialMarkers, {
+      transformOrigin: "50% 209"
+    });
+
+    $dragPadHit.hover(
+      function () {
+        TweenMax.to($dragPad, 0.4, {
+          transformOrigin: "center center",
+          scale: 1.2,
+          ease: Elastic.easeOut.config(0.9, 0.3)
+        });
+      },
+      function () {
+        TweenMax.to($dragPad, 0.2, {
+          scale: 1
+        });
+      }
+    );
+
+    dialTL
+      .to($circTrack, 0.8, {
+        drawSVG: "0% 100%",
+        ease: initEasing
+      })
+
+      .to(
+        $circOuter,
+        0.8,
+        {
+          drawSVG: "0% 100%",
+          ease: initEasing
+        },
+        "-=0.6"
+      )
+
+      .staggerTo(
+        $dialMarkers,
+        0.8,
+        {
+          cycle: {
+            rotation: function (i) {
+              return 180 - 36 * i;
+            }
+          },
+          ease: Power2.easeOut
+        },
+        0.1,
+        "-=0.4"
+      )
+
+      .staggerFrom(
+        $dialMarkerNums,
+        0.8,
+        {
+          autoAlpha: 0,
+          x: 20,
+          ease: Power2.easeOut
+        },
+        0.1,
+        "-=0.6"
+      )
+
+      .from(
+        $dragLine,
+        0.3,
+        {
+          scaleY: 0,
+          transformOrigin: "0% 100%",
+          ease: Power2.easeIn
+        },
+        "-=1.2"
+      )
+
+      .from(
+        $dragInner,
+        0.5,
+        {
+          scale: 0,
+          y: 20,
+          transformOrigin: "center center",
+          ease: Elastic.easeOut.config(0.9, 0.3)
+        },
+        "-=0.9"
+      )
+
+      .staggerFrom(
+        $resultsText,
+        0.8,
+        {
+          autoAlpha: 0,
+          y: 20,
+          ease: Power2.easeOut
+        },
+        0.1,
+        "-=1.4"
+      )
+
+      .to(
+        $trackPerc,
+        0.8,
+        {
+          drawSVG: "0% 10%",
+          ease: initEasing
+        },
+        "-=0.4"
+      )
+
+      .to(
+        $drag,
+        0.8,
+        {
+          rotation: 36,
+          ease: initEasing,
+          onUpdate: function () {
+            dragUpdate();
+          }
+        },
+        "-=1.0"
+      );
+
+    Draggable.create($drag, {
+      type: "rotation",
+      throwProps: true,
+      bounds: { maxRotation: maxRotation, minRotation: 0 },
+      snap: function (endValue) {
+        return Math.round(endValue / rotationSnap) * rotationSnap;
+      },
+      onDrag: dragUpdate,
+      onThrowUpdate: dragUpdate
+    });
+
+    function dragUpdate() {
+      var val = $drag[0]._gsTransform.rotation;
+      var percentage = Math.round(((val / 180) * 100) / 2);
+      savings = Math.round(percentage * decreaseScale * tCost);
+      if (savings < 0) {
+        savings = 0;
+      }
+      if (percentage > 50) {
+        percentage = 50;
+      } else if (percentage < 0) {
+        percentage = "0";
+      }
+      $perc.text(percentage);
+      TweenMax.set($trackPerc, {
+        drawSVG: "0% " + ((val / 180) * 100) / 2 + "%"
+      });
+      $saving.text(savings.toLocaleString("en", { maximumSignificantDigits: 21 }));
+    }
+  </script>
+
+  <script>
+    $(".cta").mouseenter(function () {
+      $(this)
+        .addClass("active")
+        .delay(300)
+        .queue(function (next) {
+          $(this).removeClass("active");
+          next();
+        });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="{% static 'mysite/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+    })
+  </script>
+</body>
+
+</html>
