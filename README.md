@@ -26,3 +26,15 @@ Finance Assistant System using Django and XAMPP server, featuring a dynamic Thre
   - Dynamic 3D visualizations using Three.js
   - Responsive and user-friendly design
 
+## Screenshots
+![Picture1](./screenshots/Picture1.png)
+
+![Picture2](./screenshots/Picture2.png)
+
+![Picture3](./screenshots/Picture3.png)
+
+![Picture4](./screenshots/Picture4.png)
+
+![Picture5](./screenshots/Picture5.png)
+
+![Picture6](./screenshots/Picture6.png)
